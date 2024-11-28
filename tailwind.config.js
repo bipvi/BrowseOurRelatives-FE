@@ -1,6 +1,3 @@
-const flowbite = require("flowbite/plugin");
-
-
 /** @type {import('tailwindcss').Config} */
 export default {
   content: [
@@ -10,9 +7,23 @@ export default {
     "./node_modules/flowbite-react/**/*.jsx"
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        roboto: ['Roboto', 'sans-serif'],
+      },
+      screens:{
+        xxs: '380px',
+        xs : '480px',
+      },
+      colors: {
+       txt : '#E7F1E4',
+       bg : '#285238',
+       myP : '#4FBA5A',
+       myS: '#012351',
+       ac : '#4CCCE6',
+      }
+    },
   },
-  plugins: [
-    flowbite,
+  plugins: [require("flowbite/plugin"),
   ],
 }

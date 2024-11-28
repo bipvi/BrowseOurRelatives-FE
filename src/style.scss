@@ -1,0 +1,33 @@
+
+.hamburger:hover {
+  background-color: #285238 !important;
+  border: 1px solid #4fba5a !important;
+}
+
+.hamburger::after{
+    border: 1px #4fba5a !important;
+}
+
+#root {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+body, :root{
+  background-color: #285238 !important;
+  height: 100vh !important;
+}
+
+button:hover{
+  border: none !important;
+}
+
+button::after{
+  border: none !important;
+}
+
+
+ul{
+  align-items: center,
+}
