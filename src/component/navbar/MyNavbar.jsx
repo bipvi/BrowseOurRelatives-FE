@@ -15,7 +15,7 @@ const MyNavbar = () => {
           <div className="hidden md:contents">
             <NavbarList />
           </div>
-          <Navbar.Toggle className="bg-myP text-bg hover:bg-bg hover:text-myP after:border-bg after:bg-myP" />
+          <Navbar.Toggle className=" bg-myP text-bg md:hidden hover:bg-bg hover:text-myP after:border-bg after:bg-myP" />
         </div>
         <Navbar.Collapse className="lg:hidden">
           <NavbarList />

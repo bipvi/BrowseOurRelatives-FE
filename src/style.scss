@@ -1,3 +1,6 @@
+.no-hover {
+  pointer-events: none !important;
+}
 
 .hamburger:hover {
   background-color: #285238 !important;
@@ -27,6 +30,10 @@ button::after{
   border: none !important;
 }
 
+.firebadge{
+  top: 22px;
+  right: 169px;
+}
 
 ul{
   align-items: center,

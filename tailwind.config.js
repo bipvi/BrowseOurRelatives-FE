@@ -20,10 +20,14 @@ export default {
        bg : '#285238',
        myP : '#4FBA5A',
        myS: '#012351',
-       ac : '#4CCCE6',
+       ac : '#16869c',
       }
     },
   },
-  plugins: [require("flowbite/plugin"),
+  plugins: [
+    require('@tailwindcss/forms')({
+      strategy: 'base',
+    }),
+    require("flowbite/plugin"),
   ],
 }
