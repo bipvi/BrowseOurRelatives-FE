@@ -8,7 +8,7 @@ export default function LoginPage() {
         <div className="sm:mx-auto sm:w-full sm:max-w-sm flex items-center mt-16  justify-center flex-wrap">
           <img alt="Your Company" src={logo} className="inline-block size-12" />
           <h2 className="pl-5 text-center text-2xl/9 font-bold tracking-tight text-txt inline">
-            Sign in to your account
+            Login in to your account
           </h2>
         </div>
 
@@ -65,7 +65,7 @@ export default function LoginPage() {
             </div>
 
             <div>
-              <ButtonMyP txt='Sign in' classe='flex w-full justify-center rounded-md' />
+              <ButtonMyP txt='Login' classe='flex w-full justify-center rounded-md' />
             </div>
           </form>
 
@@ -75,7 +75,7 @@ export default function LoginPage() {
               href="#"
               className="font-semibold text-myP hover:text-ac"
             >
-              Start a 14 day free trial
+              Sing in
             </a>
           </p>
         </div>

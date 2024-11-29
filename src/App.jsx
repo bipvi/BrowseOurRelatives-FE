@@ -5,6 +5,7 @@ import MyNavbar from "./component/navbar/MyNavbar.jsx";
 import MyHero from "./component/hero/MyHero.jsx";
 import { Navbar } from "flowbite-react";
 import LoginPage from './component/login/LoginPage.jsx';
+import RegisterPage from './component/login/RegisterPage.jsx';
 
 function App() {
   const [count, setCount] = useState(0);
@@ -15,6 +16,7 @@ function App() {
           <MyNavbar />
       </header>
       <main>
+        <RegisterPage />
         <LoginPage />
       </main>
     </>
