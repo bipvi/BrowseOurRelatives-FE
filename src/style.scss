@@ -11,18 +11,51 @@
     border: 1px #4fba5a !important;
 }
 
-#root {
+:root {
   margin: 0;
   padding: 0;
   text-align: center;
+  scrollbar-width: none !important;
+}
+
+.swiper {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  border-radius: 10%;
+  /* Center slide text vertically */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.border-gray-200{
+  border-color: #4FBA5A !important;
 }
 
 body, :root{
-  background-color: #285238 !important;
+  background-color: #00484c !important;
   height: 100vh !important;
+  width: 100vw !important;
 }
 
-button:hover{
+a:hover{
+  background: none !important;
+}
+
+a:hover,:hover{
   border: none !important;
 }
 
@@ -37,4 +70,8 @@ button::after{
 
 ul{
   align-items: center,
+}
+
+.text-shadow{
+  text-shadow: -8px 8px 10px rgba(15,15,15,1) !important;
 }

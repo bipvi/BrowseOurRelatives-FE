@@ -6,6 +6,8 @@ import MyHero from "./component/hero/MyHero.jsx";
 import { Navbar } from "flowbite-react";
 import LoginPage from './component/login/LoginPage.jsx';
 import RegisterPage from './component/login/RegisterPage.jsx';
+import CuriosonePage from './component/curiosone/CuriosonePage.jsx';
+import BottomNavigation from './component/navbar/BottomNavigation.jsx';
 
 function App() {
   const [count, setCount] = useState(0);
@@ -16,9 +18,9 @@ function App() {
           <MyNavbar />
       </header>
       <main>
-        <RegisterPage />
-        <LoginPage />
+        <MyHero />
       </main>
+      <BottomNavigation />
     </>
   );
 }

@@ -2,11 +2,13 @@ import { Card, Dropdown } from "flowbite-react";
 import img from '../../../public/favicon.svg'
 import ButtonMyS from "../buttons/ButtonMyS";
 import ButtonBg from "../buttons/ButtonBg";
+import ButtonAc from "../buttons/ButtonAc";
+import ButtonMyP from "../buttons/ButtonMyP";
 
 export default function HomeCards() {
   return (
     <>
-      <Card className="w-full bg-myP border-bg shadow-lg shadow-gray-800">
+      <Card className="w-full bg-myP hover:shadow-black shadow-sm shadow-">
         <div className="flex justify-end px-4 pt-4">
           <Dropdown className="bg-bg border-myP" inline label="">
             <Dropdown.Item className="hover:bg-myP">
@@ -48,7 +50,7 @@ export default function HomeCards() {
           </span>
           <div className="mt-4 flex space-x-3 lg:mt-6">
             <ButtonMyS txt='Vai al dettaglio' />
-            <ButtonBg txt="Vedine un altro" />
+            <ButtonMyS txt="Vedine un altro" />
           </div>
         </div>
       </Card>

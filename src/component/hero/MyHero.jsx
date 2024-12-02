@@ -7,7 +7,7 @@ export default function MyHero() {
     <>
       <div className="flex items-center justify-center my-14 md:my-16 mx-20 bg-gradient-to-r text-txt text-wrap">
         <div className="text-center">
-          <h1 className="text-4xl lg:text-5xl text-myP font-bold mb-4">
+          <h1 className="text-4xl lg:text-5xl txt-shadow text-myP font-bold mb-4">
             Benvenuto in Browse our relatives
           </h1>
           <p className="text-lg mb-8">
