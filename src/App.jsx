@@ -13,15 +13,15 @@ function App() {
   const [count, setCount] = useState(0);
 
   return (
-    <>
+    <div className='pb-36 nav:pb-6'>
       <header>
           <MyNavbar />
       </header>
-      <main>
-        <MyHero />
+      <main className='mt-28'>
+        <CuriosonePage />
       </main>
       <BottomNavigation />
-    </>
+    </div>
   );
 }
 

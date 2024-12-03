@@ -4,11 +4,12 @@ import ButtonMyS from "../buttons/ButtonMyS";
 import ButtonBg from "../buttons/ButtonBg";
 import ButtonAc from "../buttons/ButtonAc";
 import ButtonMyP from "../buttons/ButtonMyP";
+import ButtonOutlineMyS from "../buttons/ButtonOutlineMyS";
 
 export default function HomeCards() {
   return (
     <>
-      <Card className="w-full bg-myP hover:shadow-black shadow-sm shadow-">
+      <Card className="w-full bg-myP popup shadow-sm border-none rounded-lg ">
         <div className="flex justify-end px-4 pt-4">
           <Dropdown className="bg-bg border-myP" inline label="">
             <Dropdown.Item className="hover:bg-myP">
@@ -50,7 +51,7 @@ export default function HomeCards() {
           </span>
           <div className="mt-4 flex space-x-3 lg:mt-6">
             <ButtonMyS txt='Vai al dettaglio' />
-            <ButtonMyS txt="Vedine un altro" />
+            <ButtonOutlineMyS txt="Vedine un altro" />
           </div>
         </div>
       </Card>

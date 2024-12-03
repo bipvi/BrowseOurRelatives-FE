@@ -7,8 +7,12 @@ export default function RegisterPage() {
     <>
       <div className="flex min-h-full flex-1 flex-col justify-center px-2 py-4 sm:px-10 lg:py-16">
         <div className="sm:mx-auto sm:w-full sm:max-w-sm flex items-center mt-16  justify-center flex-wrap">
-          <img alt="Your Company" src={logo} className="inline-block size-12" />
-          <h2 className="pl-5 text-center text-2xl/9 font-bold tracking-tight text-txt inline">
+          <img
+            alt="Your Company"
+            src={logo}
+            className="inline-block size-12 logo-shadow"
+          />
+          <h2 className="pl-5 text-center text-2xl/9 font-bold tracking-tight text-txt inline text-shadow">
             Sign in to your account
           </h2>
         </div>
@@ -26,12 +30,12 @@ export default function RegisterPage() {
               </div>
               <div className="mt-2">
                 <input
-                  id="email"
+                  id="email1"
                   name="email"
                   type="email"
                   required
                   autoComplete="email"
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6"
+                  className="block w-full shadow-xxs rounded-md border-0 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-myP sm:text-sm/6"
                 />
               </div>
             </div>
@@ -39,7 +43,7 @@ export default function RegisterPage() {
             <div>
               <div className="flex items-center justify-between">
                 <label
-                  htmlFor="password1"
+                  htmlFor="password"
                   className="block text-sm/6 font-medium text-txt"
                 >
                   Password
@@ -49,7 +53,7 @@ export default function RegisterPage() {
                 <Popover
                   trigger="hover"
                   content={
-                    <div className="space-y-2 p-3 bg-myP border rounded-md">
+                    <div className="space-y-2 p-3 bg-myP border border-myP rounded-md">
                       <h3 className="font-semibold ">
                         Must have at least 6 characters
                       </h3>
@@ -119,25 +123,18 @@ export default function RegisterPage() {
                     </div>
                   }
                 >
-                  <TextInput id="password1" type="password" required />
+                  <TextInput id="password1" type="password" required className="border-myP shadow-xxs" />
                 </Popover>
               </div>
             </div>
 
             <div>
               <ButtonMyP
-                txt="Sign in"
+                txt="Login"
                 classe="flex w-full justify-center rounded-md"
               />
             </div>
-          </form>
-
-          <p className="mt-10 text-center text-sm/6 text-gray-300">
-            Not a member?{" "}
-            <a href="#" className="font-semibold text-myP hover:text-ac">
-              Start a 14 day free trial
-            </a>
-          </p>
+          </form>{" "}
         </div>
       </div>
     </>

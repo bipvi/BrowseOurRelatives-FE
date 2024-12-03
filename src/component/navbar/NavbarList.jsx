@@ -9,34 +9,34 @@ export default function NavbarList({classe}) {
 
   return (
     <>
-      <Navbar.Link className={`${classe} text-myP border-none hover:text-ac hover:bg-none`} active>
+      <Navbar.Link className={`${classe} home-text-shadow text-myP border-none hover:text-ac hover:bg-none`} active>
         Home
       </Navbar.Link>
-      <Navbar.Link className="text-txt border-none hover:text-ac">
+      <Navbar.Link className="home-text-shadow text-txt border-none hover:text-ac">
         Esplora
       </Navbar.Link>
-      <Navbar.Link className="text-txt border-none hover:text-ac">
+      <Navbar.Link className="home-text-shadow text-txt border-none hover:text-ac">
         <SelectDropdown />
       </Navbar.Link>
       <Navbar.Link
-        className="text-txt border-none hover:text-ac"
+        className="home-text-shadow text-txt border-none hover:text-ac"
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
         <div className="static">
           Curiosone
           <Badge
-            className={`${isHovered ? 'text-ac shadow-gray-700' : 'text-myP'} hidden md:inline absolute z-10 firebadge shadow-md`}
+            className={`${isHovered ? 'text-ac shadow-gray-700' : 'text-txt'} hidden bg-myP md:inline absolute z-10 firebadge shadow-md`}
             size="xs"
             color="gray"
             icon={AiFillFire}
           />
         </div>
       </Navbar.Link>
-      <Navbar.Link className="text-txt border-none hover:text-ac">
+      <Navbar.Link className="home-text-shadow text-txt border-none hover:text-ac">
         Contact
       </Navbar.Link>
-      <Navbar.Link className="border-none">
+      <Navbar.Link className="logo-shadow border-none">
         <AvatarDropdown />
       </Navbar.Link>
     </>
