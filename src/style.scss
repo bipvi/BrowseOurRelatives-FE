@@ -1,3 +1,12 @@
+@font-face {
+  font-family: "Bauhaus";
+  src: url("/src/assets/font/BauhausStd-Bold.woff2");
+}
+
+.title {
+  font-family: "Bauhaus" !important;
+}
+
 .no-hover {
   pointer-events: none !important;
 }
@@ -7,34 +16,106 @@
   border: 1px solid #4fba5a !important;
 }
 
-.hamburger::after{
-    border: 1px #4fba5a !important;
+.hamburger::after {
+  border: 1px #4fba5a !important;
 }
 
-#root {
+:root {
   margin: 0;
   padding: 0;
   text-align: center;
+  scrollbar-width: none !important;
 }
 
-body, :root{
-  background-color: #285238 !important;
+.swiper {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  border-radius: 10%;
+  /* Center slide text vertically */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.border-gray-200 {
+  border-color: #4fba5a !important;
+}
+
+body,
+:root {
+  background-color: #00484c !important;
   height: 100vh !important;
+  width: 100vw !important;
 }
 
-button:hover{
+li a:hover {
+  background: none !important;
+}
+
+button::after {
   border: none !important;
 }
 
-button::after{
-  border: none !important;
+.popup:hover {
+  transform: scale(1.01);
+  box-shadow: -4px 4px 13px 2px rgba(15, 15, 15, 1);
 }
 
-.firebadge{
+.firebadge {
   top: 22px;
   right: 169px;
 }
 
-ul{
-  align-items: center,
+.bottomNav {
+  background: rgb(0, 33, 34);
+  background: radial-gradient(circle, rgba(0,175,107,1) 0%, rgba(4,129,80,1) 100%);
+}
+
+ul {
+  align-items: center;
+}
+
+.text-shadow {
+  text-shadow: -8px 8px 10px rgb(38, 38, 38) !important;
+}
+
+.home-text-shadow{
+  text-shadow: -0px 10px 10px rgb(38, 38, 38) !important;
+}
+
+.text-hover:hover{
+  text-shadow: -0px 10px 13px rgb(0, 0, 0) !important;
+}
+
+.logo-shadow {
+  filter: drop-shadow(0px 8px 10px rgb(38, 38, 38));
+}
+
+.logo-hover{
+  filter: drop-shadow(-0px 10px 10 rgb(38, 38, 38));
+}
+
+@media screen and (max-width: 830px) {
+  nav > div {
+    justify-content: center !important;
+  }
+}
+
+#password1{
+  padding: 7px 12px;
+  border-radius: 0.375rem;
+  border: 2px solid #00af6b;
 }

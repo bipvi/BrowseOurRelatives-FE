@@ -6,9 +6,9 @@ export default function LoginPage() {
     <>
       <div className="flex min-h-full flex-1 flex-col justify-center px-2 py-4 sm:px-10 lg:py-16">
         <div className="sm:mx-auto sm:w-full sm:max-w-sm flex items-center mt-16  justify-center flex-wrap">
-          <img alt="Your Company" src={logo} className="inline-block size-12" />
-          <h2 className="pl-5 text-center text-2xl/9 font-bold tracking-tight text-txt inline">
-            Sign in to your account
+          <img alt="Your Company" src={logo} className="inline-block size-12 logo-shadow" />
+          <h2 className="pl-5 text-center text-2xl/9 font-bold tracking-tight text-txt inline text-shadow">
+            Login in to your account
           </h2>
         </div>
 
@@ -30,7 +30,7 @@ export default function LoginPage() {
                   type="email"
                   required
                   autoComplete="email"
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6"
+                  className="block w-full shadow-xxs rounded-md border-0 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-myP sm:text-sm/6"
                 />
               </div>
             </div>
@@ -59,13 +59,13 @@ export default function LoginPage() {
                   type="password"
                   required
                   autoComplete="current-password"
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6"
+                  className="block w-full rounded-md shadow-xxs border-0 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-myP sm:text-sm/6"
                 />
               </div>
             </div>
 
             <div>
-              <ButtonMyP txt='Sign in' classe='flex w-full justify-center rounded-md' />
+              <ButtonMyP txt='Login' classe='flex w-full justify-center rounded-md' />
             </div>
           </form>
 
@@ -75,7 +75,7 @@ export default function LoginPage() {
               href="#"
               className="font-semibold text-myP hover:text-ac"
             >
-              Start a 14 day free trial
+              Sing in
             </a>
           </p>
         </div>
