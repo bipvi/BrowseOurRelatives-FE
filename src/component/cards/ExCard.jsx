@@ -1,20 +1,29 @@
 "use client";
 
+import { Typography } from "@material-tailwind/react";
 import { Avatar, Button, Card } from "flowbite-react";
 
 export function ExCard() {
   return (
-    <Card className="w-96 md:w-70vh lg:w-50vh bg-myP shadow-sm">
-      <div className="flex items-center justify-between">
-        <h5 className="text-2xl font-bold text-bg">
-          Item name
-        </h5>
-        <Avatar
-          img="https://www.imglobal.com/images/library/the-img-advantage---svg-graphics/img-adv--doctor-network.svg"/>
+    <Card className="bg-myP shadow-xs popup p-3 rounded-xl">
+      <div className="relative">
+        <img
+          className="min-h-48 mx-auto object-cover rounded-lg shadow-sm"
+          src="https://images.unsplash.com/photo-1540553016722-983e48a2cd10?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80"
+        />
+        <Typography
+          variant="h5"
+          className="mb-2 z-40 text-txt relative bottom-10 md:bottom-14 home-text-shadow"
+        >
+          UI/UX Review Check
+        </Typography>
       </div>
-      <p className="font-normal text-txt">
-        Descrizione Item !! Lorem ipsum dolor, sit amet consectetur adipisicing elit praesentium iste illo reru figa doloribus blanditiis rec < code>...</code>      </p>
-      <Button className="text-bg hover:text-ac hover:border-ac">
+      <p className="font-normal text-xl text-txt">
+        Descrizione Item !! Lorem ipsum dolor, sit amet consectetur adipiqwjf
+        x3roweoef la dksicing elit praesentium iste illo reru figa doloribus
+        blanditiis rec <code>...</code>{" "}
+      </p>
+      <Button size="lg" className="text-bg hover:text-ac hover:border-ac text-xl">
         Read more
         <svg
           className="-mr-1 ml-2 h-4 w-4"
@@ -29,10 +38,12 @@ export function ExCard() {
           />
         </svg>
       </Button>
-      <p className="font-normal text-txt">
-        Storia Item!! Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius quod dignissimos obcaecati a <code>...</code>
+      <p className="font-normal text-xl text-txt">
+        Storia Item!! Lorem ipsum dolor sit amqiehrdqob defhik2 et nwqg qwhkdg
+        wkduconsectetur adipisicing elit. Eius quod dignissimos obcaecati a{" "}
+        <code>...</code>
       </p>
-      <Button className="text-bg hover:text-ac pb-3">
+      <Button size="lg" className="text-bg text-xl hover:text-ac pb-3">
         Read more
         <svg
           className="-mr-1 ml-2 h-4 w-4"

@@ -1,4 +1,7 @@
+import { SiNotepadplusplus } from "react-icons/si";
 import AvatarDropdown from "./AvatarDropdown";
+import { BsPlus } from "react-icons/bs";
+import { CiCirclePlus } from "react-icons/ci";
 
 export default function BottomNavigation() {
   return (
@@ -54,38 +57,15 @@ export default function BottomNavigation() {
             Wallet
             <div className="tooltip-arrow" data-popper-arrow></div>
           </div>
-          <div className="flex items-center justify-center">
-            <button
-              data-tooltip-target="tooltip-new"
-              type="button"
-              className="inline-flex items-center justify-center w-10 h-10 font-medium bg-bg rounded-full group focus:ring-4 focus:ring-bg focus:outline-none"
-            >
-              <svg
-                className="w-4 h-4 text-white"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 18 18"
-              >
-                <path
-                  stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M9 1v16M1 9h16"
-                />
-              </svg>
-              <span className="sr-only">New item</span>
-            </button>
-          </div>
-          <div
-            id="tooltip-new"
-            role="tooltip"
-            className="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700"
-          >
+          <div class="flex items-center justify-center">
+          <CiCirclePlus className="size-12 fill-bg"/>
+
+                <span class="sr-only">New item</span>
+        </div>
+        <div id="tooltip-new" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">
             Create new item
-            <div className="tooltip-arrow" data-popper-arrow></div>
-          </div>
+            <div class="tooltip-arrow" data-popper-arrow></div>
+        </div>
           <button
             data-tooltip-target="tooltip-settings"
             type="button"
