@@ -2,6 +2,7 @@ import { SiNotepadplusplus } from "react-icons/si";
 import AvatarDropdown from "./AvatarDropdown";
 import { BsPlus } from "react-icons/bs";
 import { CiCirclePlus } from "react-icons/ci";
+import { IoSearch, IoSearchCircleOutline } from "react-icons/io5";
 
 export default function BottomNavigation() {
   return (
@@ -57,14 +58,14 @@ export default function BottomNavigation() {
             Wallet
             <div className="tooltip-arrow" data-popper-arrow></div>
           </div>
-          <div class="flex items-center justify-center">
-          <CiCirclePlus className="size-12 fill-bg"/>
+          <div className="flex items-center justify-center">
+          <IoSearch className='size-10 fill-bg' />
 
-                <span class="sr-only">New item</span>
+                <span className="sr-only">New item</span>
         </div>
-        <div id="tooltip-new" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">
+        <div id="tooltip-new" role="tooltip" className="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">
             Create new item
-            <div class="tooltip-arrow" data-popper-arrow></div>
+            <div className="tooltip-arrow" data-popper-arrow></div>
         </div>
           <button
             data-tooltip-target="tooltip-settings"

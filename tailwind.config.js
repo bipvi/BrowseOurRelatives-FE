@@ -10,6 +10,9 @@ export default {
   ],
   theme: {
     extend: {
+      backgroundImage: {
+        'custom-gradient': 'linear-gradient(to right top, #00484c, #00484c, #00484c, #00484c, #00484c, #005052, #005958, #00615e, #007468, #00886e, #009c6f, #00af6b);',
+      },
       boxShadow: {
         'sm': '0px 7px 13px 2px rgb(38, 38, 38)', 
         'xs' : '-0px 5px 10px 1px rgb(38, 38, 38)',
@@ -43,9 +46,11 @@ export default {
   },
   plugins: [
     require('@tailwindcss/forms')({
-      strategy: 'base',
+      strategy: 'class',
     }),
     require("flowbite/plugin"),
     flowbite.plugin(),
+    require("@material-tailwind/react/utils/withMT"),
+    require('daisyui'),
   ],
 }
