@@ -11,7 +11,7 @@ import { useRef, useState } from "react";
 import { AiOutlineClose } from "react-icons/ai";
 import { HiOutlineSearch } from "react-icons/hi";
 
-export default function SelectDropdown() {
+export default function SelectDropdown({textColor}) {
   const inputRef = useRef(null);
   const [isOpen, setIsOpen] = useState(false);
 
@@ -45,12 +45,12 @@ export default function SelectDropdown() {
             ref={inputRef}
             id="email-address-icon"
             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg w-full"
-            placeholder="name@flowbite.com"
+            placeholder="es. gatto"
           />
         </div>
       ) : (
         <p onClick={handleDropdownToggle} className="text-txt p-2 rounded">
-          <span className="flex h-min flex-nowrap justify-evenly">
+          <span className={`${textColor} flex h-min flex-nowrap justify-evenly hover:text-ac`}>
             Esplora {"\u00A0"}
             <HiOutlineSearch />
           </span>

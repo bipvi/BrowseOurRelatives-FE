@@ -19,13 +19,13 @@ const currentYear = new Date().getFullYear();
 
 export default function FooterWithSocialLinks() {
   return (
-    <footer className="relative w-full bg-bg footerShadow pt-6 mt-6">
+    <div className="relative w-full bg-bg pt-6 mt-6">
       <div className="mx-auto w-full max-w-7xl px-8">
         <div className="grid grid-cols-1 justify-between gap-4 nav:grid-cols-2">
           <div className="flex items-center h-min justify-center gap-4">
-            <img src="/favicon.svg" className="size-16" />
-            <Typography variant="h5">
-              Material Tailwind
+            <img src="/favicon.svg" className="size-16 logo-shadow" />
+            <Typography variant="h5" className="text-shadow">
+              Browse our relatives
             </Typography>
           </div>
 
@@ -42,9 +42,7 @@ export default function FooterWithSocialLinks() {
                 {items.map((link) => (
                   <li key={link}>
                     <Typography
-                      as="a"
-                      href="#"
-                      className="py-1.5 text-txt font-normal transition-colors hover:text-blue-gray-900"
+                      className="py-1.5 text-xs md:text-sm text-txt font-normal transition-colors hover:text-blue-gray-900"
                     >
                       {link}
                     </Typography>
@@ -60,7 +58,7 @@ export default function FooterWithSocialLinks() {
             className="mb-4 text-center font-normal text-blue-gray-900 md:mb-0"
           >
             &copy; {currentYear}{" "}
-            <a href="https://material-tailwind.com/">Material Tailwind</a>. All
+            <a>Browse our relatives</a>. All
             Rights Reserved.
           </Typography>
           <div className="flex gap-4 text-blue-gray-900 sm:justify-center">
@@ -153,6 +151,6 @@ export default function FooterWithSocialLinks() {
           </div>
         </div>
       </div>
-    </footer>
+    </div>
   );
 }

@@ -4,7 +4,7 @@ export default function AvatarDropdown({classe}){
     return (
         <>
         <Dropdown
-                className={`${classe} bg-myP border border-txt`}
+                className={`${classe} bg-bg rounded-lg border border-txt`}
                 arrowIcon={false}
                 inline
                 label={

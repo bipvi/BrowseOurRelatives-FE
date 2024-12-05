@@ -7,6 +7,7 @@ import MyHero from "./component/hero/MyHero.jsx";
 import { Navbar } from "flowbite-react";
 import LoginPage from './component/login/LoginPage.jsx';
 import RegisterPage from './component/login/RegisterPage.jsx';
+import MySpeedDial from './component/buttons/MySpeedDial.jsx';
 import CuriosonePage from './component/curiosone/CuriosonePage.jsx';
 import BottomNavigation from './component/navbar/BottomNavigation.jsx';
 import ExplorePage from './component/esplora/ExplorePage.jsx';
@@ -20,10 +21,11 @@ function App() {
           <MyNavbar />
       </header>
       <main className='mt-28'>
-        <ExplorePage />
+        <CuriosonePage />
       </main>
       <footer>
       <MyFooter />
+      <MySpeedDial />
       <BottomNavigation />
       </footer>
     </div>

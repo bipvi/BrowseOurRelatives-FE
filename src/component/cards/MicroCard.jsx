@@ -1,17 +1,18 @@
 export default function MicroCard({classe}) {
   return (
     <>
-      <div className={`${classe} card bg-base-100 image-full w-96 shadow-xs hover:shadow-sm minipop`}>
+      <div className={`${classe} card bg-base-200 image-full w-full h-52 shadow-xs hover:shadow-sm minipop`}>
         <figure>
           <img
-            src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
+          className="object-cover w-full"
+            src="https://upload.wikimedia.org/wikipedia/commons/d/d5/Animalia_diversity.jpg"
             alt="Shoes"
           />
         </figure>
         <div className="card-body">
-          <h2 className="card-title text-txt">Shoes!</h2>
-          <p>If a dog chews shoes whose shoes does he choose?</p>
-          <div className="card-actions justify-end">
+          <h2 className="card-title text-center text-txt">Tigre</h2>
+          <p>La tigre è un animale che vive pre...</p>
+          <div className="card-actions justify-center">
             <button className="btn bg-bg text-txt">Buy Now</button>
           </div>
         </div>

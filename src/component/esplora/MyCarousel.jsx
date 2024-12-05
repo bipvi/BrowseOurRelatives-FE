@@ -8,15 +8,15 @@ import { useState } from "react";
 import MicroCard from "../cards/MicroCard";
 
 export default function MyCarousel() {
-  const [active, setActive] = useState(0)
-  
+  const [active, setActive] = useState(0);
+
   const toggleActive = (index) => {
-    setActive(index)
-  }
+    setActive(index);
+  };
 
   return (
     <>
-      <div className="overflow-hidden my-6 w-screen">
+      <div className="my-6 w-screen">
         <Swiper
           spaceBetween={0}
           slidesPerView="auto"
@@ -30,11 +30,26 @@ export default function MyCarousel() {
           }}
           modules={[]}
         >
-          {/* Ripeti l'immagine panoramica per creare l'effetto continuo */}
           {[...Array(5)].map((_, index) => (
-            <SwiperSlide key={index} style={{ width: "auto" }} className="" onClick={() => toggleActive(index)}>
-              <HorizontalCard classe={active === index ? "shadow-sm shadow-black grower hidden md:flex" : "smaller hidden md:flex shadow-xs"} />
-              <MicroCard classe={active === index ? "shadow-sm md:hidden shadow-black grower hide" : "smaller md:hidden mx-5 shadow-xs hide"}/>
+            <SwiperSlide
+              key={index}
+              className="wauto"
+              onClick={() => toggleActive(index)}
+            >
+              <HorizontalCard
+                classe={
+                  active === index
+                    ? "shadow-sm shadow-black grower hidden md:flex max-w-[45rem]"
+                    : "smaller hidden md:flex shadow-xs max-w-[45rem]"
+                }
+              />
+              <MicroCard
+                classe={
+                  active === index
+                    ? "shadow-sm md:hidden shadow-black grower hide"
+                    : "smaller md:hidden shadow-xs hide"
+                }
+              />
             </SwiperSlide>
           ))}
         </Swiper>

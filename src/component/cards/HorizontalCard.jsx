@@ -6,18 +6,18 @@ import {
     Button,
   } from "@material-tailwind/react";
    
-  export function HorizontalCard({classe}) {
+  export function HorizontalCard({classe = 'max-w-full'}) {
     return (
-      <Card className={`${classe} w-full max-w-[48rem] flex-row bg-myP popup shadow-xs hover:shadow-sm`}>
+      <Card className={`${classe} max-h-[21rem] flex-row bg-myP shadow-xs hover:shadow-sm`}>
         <CardHeader
           shadow={false}
           floated={false}
           className="m-0 w-2/5 shrink-0 rounded-r-none"
         >
           <img
-            src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1471&q=80"
+            src="https://upload.wikimedia.org/wikipedia/commons/d/d5/Animalia_diversity.jpg"
             alt="card-image"
-            className="h-full w-full object-cover"
+            className="w-full h-full object-cover"
           />
         </CardHeader>
         <CardBody>
@@ -30,11 +30,11 @@ import {
           <Typography className="mb-8 font-normal text-txt">
             Like so many organizations these days, Autodesk is a company in
             transition. It was until recently a traditional boxed software company
-            selling licenses. Yet its own business model disruption is only part
+            selling licenses. Yet its own business mo
             of the story
           </Typography>
           <a href="#" className="inline-block">
-            <Button variant="text" className="flex items-center gap-2">
+            <Button variant="text" className="flex text-bg items-center gap-2">
               Learn More
               <svg
                 xmlns="http://www.w3.org/2000/svg"

@@ -11,7 +11,7 @@ export default {
   theme: {
     extend: {
       backgroundImage: {
-        'custom-gradient': 'linear-gradient(to right top, #00484c, #00484c, #00484c, #00484c, #00484c, #005052, #005958, #00615e, #007468, #00886e, #009c6f, #00af6b);',
+        'custom-gradient': 'linear-gradient(110deg, rgba(0,72,76,1) 0%, rgba(0,72,76,1) 19%, rgba(0,175,107,1) 100%)',
       },
       boxShadow: {
         'sm': '0px 7px 13px 2px rgb(38, 38, 38)', 
@@ -46,7 +46,7 @@ export default {
   },
   plugins: [
     require('@tailwindcss/forms')({
-      strategy: 'class',
+      strategy: 'base',
     }),
     require("flowbite/plugin"),
     flowbite.plugin(),
