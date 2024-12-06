@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 
-export default function FormNew() {
+export default function FormNew({ closeDrawer }) {
   const [isNew, setIsNew] = useState(false);
 
   const handleIsNew = (boolean) => setIsNew(boolean);
 
-  useEffect(() => {}, [isNew]);
+  useEffect(() => {}, []);
 
   return (
     <>
@@ -91,19 +91,25 @@ export default function FormNew() {
           <input
             type="checkbox"
             id="myInput"
-            className="toggle toggle-succes"
+            className="toggle toggle-succes myInput"
             value={isNew}
             onChange={(e) => {
-                handleIsNew(e.target.checked)
-                document.getElementById("myInput").addEventListener("click", function() {
-                    this.blur();
-                })
+              handleIsNew(e.target.checked);
+              document
+                .getElementById("myInput")
+                .addEventListener("click", function () {
+                  this.blur();
+                });
             }}
           />
         </div>
         <div className="flex justify-between items-center">
-        <button className="btn btn-ghost">Annulla</button>
-        <button className="btn bg-bg text-txt">Invia</button>
+          <button className="btn btn-ghost" onClick={closeDrawer}>
+            Annulla
+          </button>
+          <button className="btn bg-bg hover:bg-bg hover:border hover:border-myP text-txt">
+            Invia
+          </button>
         </div>
       </form>
       {isNew && <FormNew />}

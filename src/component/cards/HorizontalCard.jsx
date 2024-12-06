@@ -28,9 +28,9 @@ import {
             Lyft launching cross-platform service this week
           </Typography>
           <Typography className="mb-8 font-normal text-txt">
-            Like so many organizations these days, Autodesk is a company in
-            transition. It was until recently a traditional boxed software company
-            selling licenses. Yet its own business mo
+            Like so many organiently mo<span className="hidden md:inline">C idwvfpcb weicbpw cbp </span><span className="hidden lg:inline">
+              Idyefpgc cfe qqqqqqqtrh453tè qèxf4ogu3 qectogiweqhf qodgi   qdyov xqv Lorem ipsum dolor sit amet consectetur, adipisicing elit. Velit facilis inventore illum voluptatem, quod suscipit saepe aliquid deserunt eveniet eligendi. Quod voluptate, cupiditate assumenda recusandae perspiciatis est corrupti nisi illum!hè3 2xèp4fiog3
+            </span>
             of the story
           </Typography>
           <a href="#" className="inline-block">

@@ -40,7 +40,7 @@ export default function CuriosoneHeading() {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-5 mx-auto py-3 px-8 sm:px-14 md:px-4 lg:px-16 w-screen gap-7">
+      <div className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-5 mx-auto py-3 px-8 sm:px-14 md:px-4 lg:px-16 w-screen gap-11">
         <div className="lg:col-span-4 col-span-3">
           <HorizontalCard />
           <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-6 min-w-full gap-4 mt-6">
@@ -57,7 +57,7 @@ export default function CuriosoneHeading() {
             <Typography as={'h2'} className="self-start text-lg font-semibold text-txt">Altre specie:</Typography>
             <MicroCard />
             <MicroCard />
-            <MicroCard />
+            <MicroCard classe={'hideLastCard'}/>
             <MicroCard classe={'hideLastCard'}/>
           </div>
         </div>

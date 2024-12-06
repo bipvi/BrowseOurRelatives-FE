@@ -13,7 +13,7 @@ export default function MicroCard({classe}) {
           <h2 className="card-title text-center text-txt">Tigre</h2>
           <p>La tigre è un animale che vive pre...</p>
           <div className="card-actions justify-center">
-            <button className="btn bg-bg text-txt">Buy Now</button>
+            <button className="btn bg-bg hover:bg-ac hover:shadow-sm text-txt">Buy Now</button>
           </div>
         </div>
       </div>

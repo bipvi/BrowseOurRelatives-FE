@@ -86,7 +86,7 @@ button::after {
 
 .firebadge {
   top: 22px;
-  right: 215px;
+  right: 169px;
 }
 
 .bottomNav {
@@ -153,6 +153,16 @@ img.w-10.h-10 {
 
 @media screen and (min-width: 1280px) {
   .hideLastCard {
+    display: none !important;
+  }
+}
+
+.blur {
+  filter: blur(5px);
+}
+
+@media screen and (min-width: 1536px) {
+  .hideLastsCard {
     display: none !important;
   }
 }
