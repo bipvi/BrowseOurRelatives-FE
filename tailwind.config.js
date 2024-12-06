@@ -10,6 +10,9 @@ export default {
   ],
   theme: {
     extend: {
+      backgroundImage: {
+        'custom-gradient': 'linear-gradient(110deg, rgba(0,72,76,1) 0%, rgba(0,72,76,1) 19%, rgba(0,175,107,1) 100%)',
+      },
       boxShadow: {
         'sm': '0px 7px 13px 2px rgb(38, 38, 38)', 
         'xs' : '-0px 5px 10px 1px rgb(38, 38, 38)',
@@ -47,5 +50,7 @@ export default {
     }),
     require("flowbite/plugin"),
     flowbite.plugin(),
+    require("@material-tailwind/react/utils/withMT"),
+    require('daisyui'),
   ],
 }

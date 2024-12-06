@@ -13,9 +13,6 @@ export default function NavbarList({classe}) {
         Home
       </Navbar.Link>
       <Navbar.Link className="home-text-shadow text-txt border-none hover:text-ac">
-        Esplora
-      </Navbar.Link>
-      <Navbar.Link className="home-text-shadow text-txt border-none hover:text-ac">
         <SelectDropdown />
       </Navbar.Link>
       <Navbar.Link

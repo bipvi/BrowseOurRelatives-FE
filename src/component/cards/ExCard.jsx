@@ -20,8 +20,7 @@ export function ExCard() {
       </div>
       <p className="font-normal text-xl text-txt">
         Descrizione Item !! Lorem ipsum dolor, sit amet consectetur adipiqwjf
-        x3roweoef la dksicing elit praesentium iste illo reru figa doloribus
-        blanditiis rec <code>...</code>{" "}
+        x3roweoef la d <code>...</code>{" "}
       </p>
       <Button size="lg" className="text-bg hover:text-ac hover:border-ac text-xl">
         Read more
@@ -40,7 +39,7 @@ export function ExCard() {
       </Button>
       <p className="font-normal text-xl text-txt">
         Storia Item!! Lorem ipsum dolor sit amqiehrdqob defhik2 et nwqg qwhkdg
-        wkduconsectetur adipisicing elit. Eius quod dignissimos obcaecati a{" "}
+        wkduconsectetur adipisicing ti a{" "}
         <code>...</code>
       </p>
       <Button size="lg" className="text-bg text-xl hover:text-ac pb-3">

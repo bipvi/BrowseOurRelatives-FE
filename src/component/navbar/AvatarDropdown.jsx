@@ -4,11 +4,12 @@ export default function AvatarDropdown({classe}){
     return (
         <>
         <Dropdown
-                className={`${classe} bg-myP border border-txt`}
+                className={`${classe} bg-bg rounded-lg border border-txt`}
                 arrowIcon={false}
                 inline
                 label={
                   <Avatar
+                  className="object-cover"
                     alt="User settings"
                     img="https://flowbite.com/docs/images/people/profile-picture-5.jpg"
                     rounded
