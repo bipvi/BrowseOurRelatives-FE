@@ -1,12 +1,42 @@
+import { useEffect, useState } from "react";
 import logo from "../../../public/favicon.svg";
 import ButtonMyP from "../buttons/ButtonMyP";
+import { baseUrl, GET_ME, getMe, LOCAL_STORAGE_KEY, localStorageKey, LOG_IN, logUser } from "../../redux/actions";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 export default function LoginPage() {
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
+  const user = useSelector((s) => s.user)
+  const [me, setMe] = useState({
+    username: "",
+    password: "",
+  });
+
+  const sendMe = () => {
+   dispatch(logUser(me.username, me.password), LOG_IN)
+   console.log(user)
+  };
+  
+  useEffect(() => {
+    if(user.token && user.username == '') dispatch(getMe(user.token), GET_ME)
+    
+    if(user.token && user.username != '') {
+      localStorage.setItem('tokenKey',user.token)
+      dispatch(localStorageKey(token),LOCAL_STORAGE_KEY)
+      navigate("/")}
+  },[user])
+
   return (
     <>
       <div className="flex min-h-full flex-1 flex-col justify-center px-2 py-4 sm:px-10 lg:py-16">
         <div className="sm:mx-auto sm:w-full sm:max-w-sm flex items-center mt-16  justify-center flex-wrap">
-          <img alt="Your Company" src={logo} className="inline-block size-12 logo-shadow" />
+          <img
+            alt="Your Company"
+            src={logo}
+            className="inline-block size-12 logo-shadow"
+          />
           <h2 className="pl-5 text-center text-2xl/9 font-bold tracking-tight text-txt inline text-shadow">
             Login in to your account
           </h2>
@@ -20,11 +50,13 @@ export default function LoginPage() {
                   htmlFor="email"
                   className="text-md/6 font-medium text-txt self-start"
                 >
-                  Email address
+                  Username
                 </label>
               </div>
               <div className="mt-2">
                 <input
+                  onChange={(e) => setMe({ ...me, username: e.target.value })}
+                  value={me.username}
                   id="email"
                   name="email"
                   type="email"
@@ -44,10 +76,7 @@ export default function LoginPage() {
                   Password
                 </label>
                 <div className="text-sm">
-                  <a
-                    href="#"
-                    className="font-semibold text-myP hover:text-ac"
-                  >
+                  <a href="#" className="font-semibold text-myP hover:text-ac">
                     Forgot password?
                   </a>
                 </div>
@@ -56,6 +85,8 @@ export default function LoginPage() {
                 <input
                   id="password"
                   name="password"
+                  onChange={(e) => setMe({ ...me, password: e.target.value })}
+                  value={me.password}
                   type="password"
                   required
                   autoComplete="current-password"
@@ -65,16 +96,20 @@ export default function LoginPage() {
             </div>
 
             <div>
-              <ButtonMyP txt='Login' classe='flex w-full justify-center rounded-md' />
+              <ButtonMyP
+                txt="Login"
+                classe="flex w-full justify-center rounded-md"
+                onClick={() => {
+                  console.log(me);
+                  sendMe();
+                }}
+              />
             </div>
           </form>
 
           <p className="mt-10 text-center text-sm/6 text-gray-300">
-            Not a member? {" "}
-            <a
-              href="#"
-              className="font-semibold text-myP hover:text-ac"
-            >
+            Not a member?{" "}
+            <a href="#" className="font-semibold text-myP hover:text-ac">
               Sing in
             </a>
           </p>
