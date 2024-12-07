@@ -1,26 +1,25 @@
 import { Dropdown, Avatar } from "flowbite-react"
+import { useSelector } from "react-redux"
 
 export default function AvatarDropdown({classe}){
+  const me = useSelector((s) => s.user)
     return (
         <>
         <Dropdown
-                className={`${classe} bg-bg rounded-lg border border-txt`}
+                className={`${classe} bg-bg rounded-lg border border-txt p-0`}
                 arrowIcon={false}
                 inline
                 label={
                   <Avatar
                   className="object-cover"
                     alt="User settings"
-                    img="https://flowbite.com/docs/images/people/profile-picture-5.jpg"
+                    img={me.avatar}
                     rounded
                   />
                 }
               >
                 <Dropdown.Header className="text-txt hover:bg-myP hover:text-bg rounded-none">
-                  <span className="block text-sm">Bonnie Green</span>
-                  <span className="block truncate text-sm font-medium">
-                    name@flowbite.com
-                  </span>
+                  <span className="block text-sm">{me.username}</span>
                 </Dropdown.Header>
                 <Dropdown.Item className="text-txt hover:bg-myP hover:text-ac rounded-none">
                   Dashboard

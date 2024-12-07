@@ -33,7 +33,7 @@ export default function ModalMod({ open, handleOpen, closeModal }) {
         <DialogHeader>Browse our relatives</DialogHeader>
         <DialogBody>
           <form className="grid grid-cols-2 gap-4 px-6 w-full">
-            <label className="form-control w-full mb-4">
+            <label className="form-control w-full mb-4 col-span-2 md:col-span-1">
               <div className="label">
                 <span className="label-text">Nome Item</span>
               </div>
@@ -52,7 +52,7 @@ export default function ModalMod({ open, handleOpen, closeModal }) {
                 <option>Specie</option>
               </select>
             </label>
-            <label className="form-control w-full mb-4">
+            <label className="form-control w-full mb-4 col-span-2 md:col-span-1">
               <div className="label">
                 <span className="label-text">Nome Item</span>
               </div>
@@ -62,7 +62,7 @@ export default function ModalMod({ open, handleOpen, closeModal }) {
                 className="input input-md bg-transparent placeholder:text-gray-400 border border-gray-400"
               />
             </label>
-            <label className="form-control mb-4">
+            <label className="form-control mb-4 col-span-2 md:col-span-1">
               <div className="label">
                 <span className="label-text">
                   Inserisci la descrizione del tuo item
@@ -74,7 +74,7 @@ export default function ModalMod({ open, handleOpen, closeModal }) {
                 placeholder="Inserisci descrizione ..."
               ></textarea>
             </label>
-            <label className="form-control mb-4">
+            <label className="form-control mb-4 col-span-2 md:col-span-1">
               <div className="label">
                 <span className="label-text">
                   Inserisci la storia del tuo item
@@ -86,7 +86,7 @@ export default function ModalMod({ open, handleOpen, closeModal }) {
                 placeholder="Inserisci storia ..."
               ></textarea>
             </label>
-            <label className="form-control w-full mb-4">
+            <label className="form-control w-full mb-4 col-span-2 md:col-span-1">
               <div className="label">
                 <span className="label-text">Immagine Item</span>
               </div>
@@ -96,7 +96,7 @@ export default function ModalMod({ open, handleOpen, closeModal }) {
                 className="input input-md bg-transparent placeholder:text-gray-400 border border-gray-400"
               />
             </label>
-            <label>
+            <label className=" col-span-2 md:col-span-1">
               <div className="label">
                 <span className="label-text">Seleziona relazione</span>
               </div>
