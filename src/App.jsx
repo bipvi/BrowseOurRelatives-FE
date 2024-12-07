@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState } from "react";
-import "./App.css";
+import "./style/App.css";
 import MyNavbar from "./component/navbar/MyNavbar.jsx";
 import MyFooter from "./component/footer/MyFooter.jsx";
 import MyHero from "./component/hero/MyHero.jsx";
