@@ -1,21 +1,21 @@
-export default function MicroCard({classe}) {
+export default function MicroCard({ classe = '', item }) {
   return (
     <>
-      <div className={`${classe} card bg-base-200 image-full w-full h-52 shadow-xs hover:shadow-sm minipop`}>
-        <figure>
-          <img
-          className="object-cover w-full"
-            src="https://upload.wikimedia.org/wikipedia/commons/d/d5/Animalia_diversity.jpg"
-            alt="Shoes"
-          />
-        </figure>
-        <div className="card-body">
-          <h2 className="card-title text-center text-txt">Tigre</h2>
-          <p>La tigre è un animale che vive pre...</p>
-          <div className="card-actions justify-center">
-            <button className="btn bg-bg hover:bg-ac hover:shadow-sm text-txt">Buy Now</button>
-          </div>
+      <div className={`${classe} bg-myP rounded-lg shadow-lg popup`}>
+        <div className="px-4 py-2">
+          <h1 className="text-xl font-bold text-txt">
+            {item != undefined ? item.nome : ""}
+          </h1>
+          <p className="mt-1 text-sm text-txt">
+            {item != undefined ? item.descrizione.slice(0, 58) : "Ciao"}...
+          </p>
         </div>
+
+        <img
+          className="object-contain overflow-hidden w-full h-48 rounded-t-none rounded-b-lg"
+          src={item != undefined && item.img}
+          alt="animal"
+        />
       </div>
     </>
   );

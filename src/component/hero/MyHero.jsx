@@ -66,7 +66,10 @@ export default function MyHero() {
         func(data);
         return data;
       })
-      .catch((er) => alert(er));
+      .catch((er) => {
+        navigate("/login")
+        console.log(er)
+      });
   };
 
   return (

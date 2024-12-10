@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import './style/App.css'
+import "./style/App.css";
 import { useState } from "react";
 import MyNavbar from "./component/navbar/MyNavbar.jsx";
 import MyFooter from "./component/footer/MyFooter.jsx";
@@ -28,7 +28,7 @@ function App() {
         <main className="mt-28">
           <Routes>
             <Route path="/curiosone" element={<CuriosonePage />} />
-            <Route path="/esplora" element={<ExplorePage />} />
+            <Route path="/:itemId" element={<ExplorePage />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/register" element={<RegisterPage />} />
             <Route path="/" element={<MyHero />} />

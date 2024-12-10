@@ -6,16 +6,15 @@ export default function AvatarDropdown({classe}){
     return (
         <>
         <Dropdown
-                className={`${classe} bg-bg rounded-lg border border-txt p-0`}
+                className={`${classe} bg-bg rounded-lg border border-txt`}
                 arrowIcon={false}
                 inline
-                label={
-                  <Avatar
-                  className="object-cover"
-                    alt="User settings"
-                    img={me.avatar}
-                    rounded
-                  />
+                label={ me.avatar ?
+                  <img
+                  className="object-contain w-10 h-10 ring-2 ring-txt rounded-full"
+                    alt='profile'
+                    src={me.avatar}
+                  /> : <img src="https://www.pngitem.com/pimgs/m/30-307416_profile-icon-png-image-free-download-searchpng-employee.png" alt="profile" className="object-contain w-10 h-10 ring-2 ring-txt rounded-full"/>
                 }
               >
                 <Dropdown.Header className="text-txt hover:bg-myP hover:text-bg rounded-none">

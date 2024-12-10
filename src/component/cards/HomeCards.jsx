@@ -42,7 +42,7 @@ export default function HomeCards({item, change, num}) {
           <img
             alt="Bonnie image"
             src={item ? item.img : "https://flowbite.com/docs/images/people/profile-picture-5.jpg"}
-            className="mb-3 rounded-full shadow-md shadow-gray-800 h-32 w-32"
+            className="mb-3 rounded-full shadow-md shadow-gray-800 object-cover h-32 w-32"
           />
           <h5 className="mb-1 text-xl font-medium text-myS">
            {item && item.nome}
