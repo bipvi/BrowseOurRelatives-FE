@@ -12,7 +12,7 @@ export default function MicroCard({ classe = '', item }) {
         </div>
 
         <img
-          className="object-contain overflow-hidden w-full h-48 rounded-t-none rounded-b-lg"
+          className="object-cover overflow-hidden w-full h-52 rounded-t-none rounded-b-lg"
           src={item != undefined && item.img}
           alt="animal"
         />

@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 import MyCarousel from "./MyCarousel";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { baseUrl } from "../../redux/actions";
 import { useSelector } from "react-redux";
 
 export default function ExplorePage() {
+  const navigate = useNavigate();
   const params = useParams();
   const me = useSelector((s) => s.user);
   const [item, setItem] = useState({});
@@ -114,6 +115,11 @@ export default function ExplorePage() {
       .catch((e) => alert(`Errore: ${e.message}`));
   };
   
+  useEffect(() => {
+    if (!me.token){
+      navigate("/")
+    } 
+  }, [me])
 
   useEffect(() => {
     itemFetch();

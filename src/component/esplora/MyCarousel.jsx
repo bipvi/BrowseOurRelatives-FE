@@ -8,11 +8,13 @@ import { useEffect, useState } from "react";
 import MicroCard from "../cards/MicroCard";
 import { baseUrl } from "../../redux/actions";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 export default function MyCarousel({ prevItem, setActive, active }) {
   const me = useSelector((s) => s.user);
   const [list, setList] = useState([]);
   const [error, setError] = useState(null);
+  const navigate = useNavigate()
 
   const fetchAll = () => {
     if (!prevItem || !prevItem.id) return;
@@ -83,7 +85,7 @@ export default function MyCarousel({ prevItem, setActive, active }) {
               <SwiperSlide
                 key={index}
                 className="wauto"
-                onClick={() => setActive(it.id)}
+                onClick={() => navigate(`/${it.id}`)}
               >
                 <HorizontalCard
                   it={it}
@@ -104,7 +106,7 @@ export default function MyCarousel({ prevItem, setActive, active }) {
               </SwiperSlide>
             ))
           ) : (
-            <p>Nessun dato disponibile.</p>
+            <></>
           )}
         </Swiper>
       )}
