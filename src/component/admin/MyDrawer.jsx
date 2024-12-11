@@ -5,7 +5,7 @@ import {
   IconButton,
 } from "@material-tailwind/react";
 import { useEffect } from "react";
-import FormNew from "./FormNew,";
+import FormNew from "./FormNew";
 
 export default function MyDrawer({ open, closeDrawer }) {
   return (

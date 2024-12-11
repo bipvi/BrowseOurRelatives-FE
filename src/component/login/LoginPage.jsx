@@ -24,7 +24,7 @@ export default function LoginPage() {
     
     if(user.token && user.username != '') {
       localStorage.setItem('tokenKey',user.token)
-      dispatch(localStorageKey(token),LOCAL_STORAGE_KEY)
+      dispatch(localStorageKey(user.token),LOCAL_STORAGE_KEY)
       navigate("/")}
   },[user])
 

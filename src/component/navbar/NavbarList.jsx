@@ -3,14 +3,16 @@ import { Badge, Navbar } from "flowbite-react";
 import AvatarDropdown from "./AvatarDropdown";
 import SelectDropdown from "./SelectDropdown";
 import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function NavbarList({classe}) {
+  const navigate = useNavigate()
   const [isHovered, setIsHovered] = useState(false);
 
   return (
     <>
       <Navbar.Link className={`${classe} home-text-shadow text-myP border-none hover:text-ac hover:bg-none`} active>
-        Home
+       <p onClick={() => navigate("/")}> Home</p>
       </Navbar.Link>
       <Navbar.Link className="home-text-shadow text-txt border-none hover:text-ac">
         <SelectDropdown />
@@ -20,7 +22,7 @@ export default function NavbarList({classe}) {
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
-        <div className="static">
+        <p onClick={() => navigate('/curiosone')} className="static">
           Curiosone
           <Badge
             className={`${isHovered ? 'text-ac shadow-gray-700' : 'text-txt'} hidden bg-myP md:inline absolute z-10 firebadge shadow-md`}
@@ -28,7 +30,7 @@ export default function NavbarList({classe}) {
             color="gray"
             icon={AiFillFire}
           />
-        </div>
+        </p>
       </Navbar.Link>
       <Navbar.Link className="home-text-shadow text-txt border-none hover:text-ac">
         Contact
