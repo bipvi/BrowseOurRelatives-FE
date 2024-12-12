@@ -7,6 +7,9 @@ import SelectDropdown from "./SelectDropdown";
 import { useNavigate } from "react-router-dom";
 import { GiWorld } from "react-icons/gi";
 import BottomQuery from "./BottomQuery";
+import { FaPhone } from "react-icons/fa6";
+import { MdPhoneEnabled } from "react-icons/md";
+import { RiContactsFill } from "react-icons/ri";
 
 export default function BottomNavigation() {
   const navigate = useNavigate()
@@ -70,29 +73,15 @@ export default function BottomNavigation() {
             type="button"
             className="inline-flex flex-col items-center justify-center px-5 hover:bg-gray-50 dark:hover:bg-gray-800 group"
           >
-            <svg
-              className="w-5 h-5 mb-1 text-txt group-hover:text-bg"
-              aria-hidden="true"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 20 20"
-            >
-              <path
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M4 12.25V1m0 11.25a2.25 2.25 0 0 0 0 4.5m0-4.5a2.25 2.25 0 0 1 0 4.5M4 19v-2.25m6-13.5V1m0 2.25a2.25 2.25 0 0 0 0 4.5m0-4.5a2.25 2.25 0 0 1 0 4.5M10 19V7.75m6 4.5V1m0 11.25a2.25 2.25 0 1 0 0 4.5 2.25 2.25 0 0 0 0-4.5ZM16 19v-2"
-              />
-            </svg>
-            <span className="sr-only">Settings</span>
+            <RiContactsFill className="w-8 h-8" />
+            <span className="sr-only">Contatti</span>
           </button>
           <div
             id="tooltip-settings"
             role="tooltip"
             className="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700"
           >
-            Settings
+            Contatti
             <div className="tooltip-arrow" data-popper-arrow></div>
           </div>
           

@@ -1,10 +1,7 @@
 import {
-  Checkbox,
   Card,
   List,
   ListItem,
-  ListItemPrefix,
-  Typography,
   Badge,
 } from "@material-tailwind/react";
 import { useEffect, useRef, useState } from "react";
@@ -261,7 +258,7 @@ export default function SelectDropdown({ textColor }) {
       {isOpen && (
         <>
           <Card
-            className={`absolute top-20 right-64 bg-bg border border-txt text-txt grid ${
+            className={`absolute top-20 right-64 max-h-[40rem] overflow-scroll bg-bg border border-txt text-txt grid ${
               isOpen2 ? "grid-cols-2 lg:grid-cols-4" : "grid-cols-2"
             }`}
           >
@@ -531,7 +528,9 @@ export default function SelectDropdown({ textColor }) {
                     searchResults.nome.map((n, i) => {
                       return (
                         <List.Item
-                          onClick={() => navigate(`/${n.id}`)}
+                        onClick={() => {
+                          setIsOpen(false)
+                          navigate(`/${n.id}`)}}
                           key={i}
                           className="flex justify-between items-center hover:border gap-2"
                         >
@@ -557,7 +556,9 @@ export default function SelectDropdown({ textColor }) {
                       return (
                         <List.Item
                           key={i}
-                          onClick={() => navigate(`/${d.id}`)}
+                          onClick={() => {
+                            setIsOpen(false)
+                            navigate(`/${d.id}`)}}
                           className="flex justify-between items-center hover:border gap-2"
                         >
                           <div className="flex flex-col  items-start">
@@ -581,9 +582,11 @@ export default function SelectDropdown({ textColor }) {
                     searchResults.storia.map((s, i) => {
                       return (
                         <List.Item
-                          onClick={() => navigate(`/${s.id}`)}
+                        onClick={() => {
+                          setIsOpen(false)
+                          navigate(`/${s.id}`)}}
                           key={i}
-                          className="flex justify-between items-center hover:border gap-2"
+                          className="flex justify-between items-center hover:border gap-5 sm:gap-2 "
                         >
                           <div className="flex flex-col  items-start">
                             <span>{s.nome}</span>

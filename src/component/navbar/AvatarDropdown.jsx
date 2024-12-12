@@ -1,8 +1,18 @@
 import { Dropdown, Avatar } from "flowbite-react"
-import { useSelector } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
+import { REMOVE_ME, removeMe } from "../../redux/actions"
+import { useNavigate } from "react-router-dom"
 
 export default function AvatarDropdown({classe}){
   const me = useSelector((s) => s.user)
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
+  const exit = () => {
+    localStorage.removeItem('tokenKey')
+    dispatch(removeMe(), REMOVE_ME)
+    navigate('/login')
+  }
+
     return (
         <>
         <Dropdown
@@ -30,7 +40,7 @@ export default function AvatarDropdown({classe}){
                   Earnings
                 </Dropdown.Item>
                 <Dropdown.Divider />
-                <Dropdown.Item className="text-txt hover:bg-myP hover:text-ac rounded-none">
+                <Dropdown.Item onClick={exit} className="text-txt hover:bg-myP hover:text-ac rounded-none">
                   Sign out
                 </Dropdown.Item>
               </Dropdown>

@@ -131,6 +131,7 @@ export default function Details({ open, handleOpen, closeModal, item }) {
       {/* Main Dialog */}
       <Dialog
         open={open}
+        size={'xxl'}
         handler={handleOpen}
         animate={{
           mount: { scale: 1, y: 0 },
@@ -138,7 +139,7 @@ export default function Details({ open, handleOpen, closeModal, item }) {
         }}
         className="bg-custom-gradient w-screen h-screen p-8 m-auto border-ac overflow-y-scroll"
       >
-        <div className="mx-auto p-6 flex flex-col-reverse md:flex-row gap-6">
+        <div className="p-6 flex flex-col-reverse md:flex-row gap-6">
           {/* Immagine principale */}
           <div className="flex-shrink-0">
             <img

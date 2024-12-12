@@ -18,15 +18,21 @@ export default function LoginPage() {
    dispatch(logUser(me.username, me.password), LOG_IN)
    console.log(user)
   };
+
+  const handleSubmit = (e) => {
+    e.preventeDefault()
+    if (me.username != '' || me.password != '') {
+      sendMe()
+    }
+  }
   
   useEffect(() => {
     if(user.token && user.username == '') dispatch(getMe(user.token), GET_ME)
-    
     if(user.token && user.username != '') {
       localStorage.setItem('tokenKey',user.token)
       dispatch(localStorageKey(user.token),LOCAL_STORAGE_KEY)
       navigate("/")}
-  },[user])
+  },[])
 
   return (
     <>
@@ -43,7 +49,7 @@ export default function LoginPage() {
         </div>
 
         <div className="mt-6 sm:mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-          <form className="space-y-6 mx-6 sm:mx-2">
+          <form className="space-y-6 mx-6 sm:mx-2" onSubmit={handleSubmit}>
             <div>
               <div className="flex">
                 <label
@@ -109,7 +115,7 @@ export default function LoginPage() {
 
           <p className="mt-10 text-center text-sm/6 text-gray-300">
             Not a member?{" "}
-            <a href="#" className="font-semibold text-myP hover:text-ac">
+            <a onClick={() => navigate('/register')} className="font-semibold text-myP hover:text-ac">
               Sing in
             </a>
           </p>

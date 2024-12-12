@@ -23,7 +23,7 @@ export function HorizontalCard({ classe = "max-w-full", it }) {
       <Details
         open={open}
         handleOpen={handleOpen}
-        closeOpen={closeOpen}
+        closeModal={closeOpen}
         item={it}
       />
       <Card

@@ -1,8 +1,31 @@
 import { Popover, TextInput } from "flowbite-react";
 import logo from "../../../public/favicon.svg";
 import ButtonMyP from "../buttons/ButtonMyP";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { signUp } from "../../redux/actions";
 
 export default function RegisterPage() {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const user = useSelector((s) => s.user);
+  const [me, setMe] = useState({
+    username: "",
+    password: "",
+  });
+
+  const sendMe = () => {
+    dispatch(signUp(me.username, me.password), SIGN_UP);
+    console.log(user);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventeDefault();
+    if (me.username != "" || me.password != "") {
+      sendMe();
+    }
+  };
   return (
     <>
       <div className="flex min-h-full flex-1 flex-col justify-center px-2 py-4 sm:px-10 lg:py-16">
@@ -18,7 +41,7 @@ export default function RegisterPage() {
         </div>
 
         <div className="mt-6 sm:mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-          <form className="space-y-6 mx-6 sm:mx-2">
+          <form className="space-y-6 mx-6 sm:mx-2" onSubmit={handleSubmit}>
             <div>
               <div className="flex">
                 <label
@@ -30,6 +53,8 @@ export default function RegisterPage() {
               </div>
               <div className="mt-2">
                 <input
+                  onChange={(e) => setMe({ ...me, username: e.target.value })}
+                  value={me.username}
                   id="email1"
                   name="email"
                   type="email"
@@ -123,7 +148,14 @@ export default function RegisterPage() {
                     </div>
                   }
                 >
-                  <TextInput id="password1" type="password" required className="border-myP shadow-xxs" />
+                  <TextInput
+                    onChange={(e) => setMe({ ...me, password: e.target.value })}
+                    value={me.password}
+                    id="password1"
+                    type="password"
+                    required
+                    className="border-myP shadow-xxs"
+                  />
                 </Popover>
               </div>
             </div>

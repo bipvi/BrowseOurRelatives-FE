@@ -6,6 +6,7 @@ export const LOG_IN = 'LOG_IN'
 export const GET_ME = 'GET_ME'
 export const SIGN_UP = 'SIGN_UP'
 export const baseUrl = 'http://localhost:3001'
+export const REMOVE_ME = 'REMOVE_ME'
 
 //-------------------- USERS --------------------------
 // ----------------- LOGIN ---------------------
@@ -162,5 +163,11 @@ export const localStorageKey  = (token) => {
     return {
         type: LOCAL_STORAGE_KEY,
         payload: token,
+    }
+}
+
+export const removeMe = () => {
+    return {
+        type: REMOVE_ME,
     }
 }

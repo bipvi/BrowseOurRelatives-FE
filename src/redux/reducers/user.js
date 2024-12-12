@@ -1,4 +1,4 @@
-import { ADD_FAVOURITE, GET_FAVOURITE, GET_ME, LOCAL_STORAGE_KEY, LOG_IN, REMOVE_FAVOURITE } from "../actions"
+import { ADD_FAVOURITE, GET_FAVOURITE, GET_ME, LOCAL_STORAGE_KEY, LOG_IN, REMOVE_FAVOURITE, REMOVE_ME } from "../actions"
 
 const initialState = {
     username: '',
@@ -35,6 +35,10 @@ const userReducer = (state = initialState, action) => {
             return {
                 ...state,
                 favourites: state.favourites.filter(favourite => favourite !== action.favourite)
+            }
+        case REMOVE_ME:
+            return{
+                ... initialState,
             }
         case LOCAL_STORAGE_KEY: 
             return{
