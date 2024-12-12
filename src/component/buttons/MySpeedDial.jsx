@@ -49,9 +49,6 @@ export default function MySpeedDial() {
             <SpeedDialAction className="bg-transparent relative flex-row-reverse">
               <Icon toggleModal={toggleModal} />
             </SpeedDialAction>
-            <SpeedDialAction className="bg-transparent">
-              <Square3Stack3DIcon className="h-5 w-5 nav:h-8 nav:w-8 fill-txt" />
-            </SpeedDialAction>
           </SpeedDialContent>
         </SpeedDial>
       </div>

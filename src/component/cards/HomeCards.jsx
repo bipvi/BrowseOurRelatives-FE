@@ -4,14 +4,19 @@ import ButtonBg from "../buttons/ButtonBg";
 import ButtonAc from "../buttons/ButtonAc";
 import ButtonMyP from "../buttons/ButtonMyP";
 import ButtonOutlineMyS from "../buttons/ButtonOutlineMyS";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import Details from "../detail/Details";
 
 export default function HomeCards({item, change, num}) {
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => {setOpen(!open)}
+  const closeOpen = () => {setOpen(false)}
 
   useEffect(()=>{},[item])
 
   return (
     <>
+    <Details item={item} handleOpen={handleOpen} closeModal={closeOpen} open={open} />
       <Card className="w-full bg-myP popup shadow-sm border-none rounded-lg">
         <div className="flex justify-end px-4 pt-4">
           <Dropdown className="bg-bg border-myP" inline label="">
@@ -51,7 +56,7 @@ export default function HomeCards({item, change, num}) {
             {item && item.tipo}
           </span>
           <div className="mt-4 flex space-x-3 lg:mt-6">
-            <ButtonMyS txt='Vai al dettaglio' />
+            <ButtonMyS txt='Dettaglio' onclick={handleOpen}/>
             <ButtonOutlineMyS txt="Vedine un altro" onclick={change} num={num}/>
           </div>
         </div>

@@ -16,7 +16,7 @@ import { useNavigate } from "react-router-dom";
 
 export default function SelectDropdown({ textColor }) {
   const inputRef = useRef(null);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const me = useSelector((s) => s.user);
   const [isOpen, setIsOpen] = useState(false);
   const [isOpen2, setIsOpen2] = useState(false);
@@ -265,83 +265,6 @@ export default function SelectDropdown({ textColor }) {
               isOpen2 ? "grid-cols-2 lg:grid-cols-4" : "grid-cols-2"
             }`}
           >
-            <div
-              className={`col-span-2 w-full text-txt max-h-[25rem] border-l border-l-txt  lg:border-l lg:border-l-txt overflow-scroll ${
-                isOpen2 ? "" : "hidden"
-              }`}
-            >
-              <List className="grid grid-cols-3">
-                <div>
-                  <List.Item>Nome</List.Item>
-                  {searchResults != null &&
-                    searchResults.nome.map((n, i) => {
-                      return (
-                        <List.Item
-                        onClick={() => navigate(`/${n.id}`)}
-                          key={i}
-                          className="flex justify-between items-center hover:border gap-2"
-                        >
-                          <div className="flex flex-col items-start">
-                            <span>{n.nome}</span>
-                            <span className="text-2xs text-gray-400">{n.tipo}</span>
-                          </div>
-                          <img
-                            src={n.img}
-                            alt={n.img}
-                            className="w-12 h-12 rounded-full object-cover"
-                          />
-                        </List.Item>
-                      );
-                    })}
-                </div>
-                <div>
-                  <List.Item>Descrizione</List.Item>
-                  {searchResults != null &&
-                    searchResults.desc.map((d, i) => {
-                      return (
-                        <List.Item
-                          key={i}
-                          onClick={() => navigate(`/${d.id}`)}
-                          className="flex justify-between items-center hover:border gap-2"
-                        >
-                          <div className="flex flex-col  items-start">
-                            <span>{d.nome}</span>
-                            <span className="text-2xs text-gray-400">{d.tipo}</span>
-                          </div>
-                          <img
-                            src={d.img}
-                            alt={d.img}
-                            className="w-12 h-12 rounded-full object-cover"
-                          />
-                        </List.Item>
-                      );
-                    })}
-                </div>
-                <div>
-                  <List.Item>Storia</List.Item>
-                  {searchResults != null &&
-                    searchResults.storia.map((s, i) => {
-                      return (
-                        <List.Item
-                        onClick={() => navigate(`/${s.id}`)}
-                          key={i}
-                          className="flex justify-between items-center hover:border gap-2"
-                        >
-                          <div className="flex flex-col  items-start">
-                            <span>{s.nome}</span>
-                            <span className="text-2xs text-gray-400">{s.tipo}</span>
-                          </div>
-                          <img
-                            src={s.img}
-                            alt={s.img}
-                            className="w-12 h-12 rounded-full object-cover"
-                          />
-                        </List.Item>
-                      );
-                    })}
-                </div>
-              </List>
-            </div>
             <List>
               <ListItem className="p-0">
                 <div className="form-control">
@@ -596,6 +519,89 @@ export default function SelectDropdown({ textColor }) {
                 </div>
               </ListItem>
             </List>
+            <div
+              className={`col-span-2 w-full text-txt max-h-[25rem] border-l border-l-txt  lg:border-l lg:border-l-txt overflow-scroll ${
+                isOpen2 ? "" : "hidden"
+              }`}
+            >
+              <List className="grid grid-cols-3">
+                <div>
+                  <List.Item>Nome</List.Item>
+                  {searchResults != null &&
+                    searchResults.nome.map((n, i) => {
+                      return (
+                        <List.Item
+                          onClick={() => navigate(`/${n.id}`)}
+                          key={i}
+                          className="flex justify-between items-center hover:border gap-2"
+                        >
+                          <div className="flex flex-col items-start">
+                            <span>{n.nome}</span>
+                            <span className="text-2xs text-gray-400">
+                              {n.tipo}
+                            </span>
+                          </div>
+                          <img
+                            src={n.img}
+                            alt={n.img}
+                            className="w-12 h-12 rounded-full object-cover"
+                          />
+                        </List.Item>
+                      );
+                    })}
+                </div>
+                <div>
+                  <List.Item>Descrizione</List.Item>
+                  {searchResults != null &&
+                    searchResults.desc.map((d, i) => {
+                      return (
+                        <List.Item
+                          key={i}
+                          onClick={() => navigate(`/${d.id}`)}
+                          className="flex justify-between items-center hover:border gap-2"
+                        >
+                          <div className="flex flex-col  items-start">
+                            <span>{d.nome}</span>
+                            <span className="text-2xs text-gray-400">
+                              {d.tipo}
+                            </span>
+                          </div>
+                          <img
+                            src={d.img}
+                            alt={d.img}
+                            className="w-12 h-12 rounded-full object-cover"
+                          />
+                        </List.Item>
+                      );
+                    })}
+                </div>
+                <div>
+                  <List.Item>Storia</List.Item>
+                  {searchResults != null &&
+                    searchResults.storia.map((s, i) => {
+                      return (
+                        <List.Item
+                          onClick={() => navigate(`/${s.id}`)}
+                          key={i}
+                          className="flex justify-between items-center hover:border gap-2"
+                        >
+                          <div className="flex flex-col  items-start">
+                            <span>{s.nome}</span>
+                            <span className="text-2xs text-gray-400">
+                              {s.tipo}
+                            </span>
+                          </div>
+                          <img
+                            src={s.img}
+                            alt={s.img}
+                            className="w-12 h-12 rounded-full object-cover"
+                          />
+                        </List.Item>
+                      );
+                    })}
+                </div>
+              </List>
+            </div>
           </Card>
         </>
       )}

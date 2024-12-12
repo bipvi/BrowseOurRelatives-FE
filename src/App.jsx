@@ -13,6 +13,7 @@ import ExplorePage from "./component/esplora/ExplorePage.jsx";
 import { useDispatch, useSelector } from "react-redux";
 import { LOCAL_STORAGE_KEY, localStorageKey } from "./redux/actions/index.js";
 import { BrowserRouter, Route, Routes, useNavigate } from "react-router-dom";
+import Details from "./component/detail/Details.jsx";
 
 function App() {
   const [count, setCount] = useState(0);

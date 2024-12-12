@@ -12,7 +12,7 @@ import { useSelector } from "react-redux";
 import { baseUrl } from "../../redux/actions";
 import FileImg from "./FileImg";
 
-export default function ModalMod({ open, handleOpen, closeModal }) {
+export default function ModalMod({ open, handleOpen, closeModal, itemPassed=null }) {
   const me = useSelector((s) => s.user);
   const [fileImg, setFileImg] = useState(false);
   const [items, setItems] = useState([]);
@@ -28,6 +28,20 @@ export default function ModalMod({ open, handleOpen, closeModal }) {
   const [tipo, setTipo] = useState("");
   const [relazioni, setRelazioni] = useState([]);
   const [relazione, setRelazione] = useState({});
+
+
+  useEffect(() => {
+    if(itemPassed){
+      setItem(itemPassed)
+      setTipo(itemPassed?.tipo)
+      setModItem({
+        nome: itemPassed?.nome,
+        desc: itemPassed?.descrizione,
+        storia: itemPassed?.storia,
+        img: itemPassed?.img,
+      });
+    }
+  },[itemPassed])
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -184,7 +198,7 @@ export default function ModalMod({ open, handleOpen, closeModal }) {
           mount: { scale: 1, y: 0 },
           unmount: { scale: 0.9, y: -100 },
         }}
-        className="bg-custom-gradient h-3/4 w-3/4 m-auto border-2 border-ac p-3 overflow-y-scroll"
+        className="bg-custom-gradient w-screen m-auto md:h-3/4 md:w-3/4 border-2 border-ac p-3 overflow-y-scroll"
       >
         <DialogHeader>Browse our relatives</DialogHeader>
         <DialogBody>
@@ -262,7 +276,7 @@ export default function ModalMod({ open, handleOpen, closeModal }) {
                 onChange={(e) =>
                   setModItem({ ...modItem, desc: e.target.value })
                 }
-                className="textarea textarea-md h-28 bg-transparent placeholder:text-gray-400 border border-gray-400"
+                className="textarea textarea-md h-48 bg-transparent placeholder:text-gray-400 border border-gray-400"
                 placeholder="Inserisci descrizione ..."
               ></textarea>
             </label>
@@ -279,7 +293,7 @@ export default function ModalMod({ open, handleOpen, closeModal }) {
                 onChange={(e) =>
                   setModItem({ ...modItem, storia: e.target.value })
                 }
-                className="textarea textarea-md h-28 bg-transparent placeholder:text-gray-400 border border-gray-400"
+                className="textarea textarea-md h-48 bg-transparent placeholder:text-gray-400 border border-gray-400"
                 placeholder="Inserisci storia ..."
               ></textarea>
             </label>
