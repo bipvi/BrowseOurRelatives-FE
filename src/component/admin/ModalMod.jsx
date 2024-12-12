@@ -5,6 +5,7 @@ import {
   DialogHeader,
   DialogBody,
   DialogFooter,
+  Alert,
 } from "@material-tailwind/react";
 import SelectDropdown from "../navbar/SelectDropdown";
 import FormNew from "./FormNew";
@@ -12,11 +13,18 @@ import { useSelector } from "react-redux";
 import { baseUrl } from "../../redux/actions";
 import FileImg from "./FileImg";
 
-export default function ModalMod({ open, handleOpen, closeModal, itemPassed=null }) {
+export default function ModalMod({
+  open,
+  handleOpen,
+  closeModal,
+  itemPassed = null,
+}) {
   const me = useSelector((s) => s.user);
   const [fileImg, setFileImg] = useState(false);
   const [items, setItems] = useState([]);
   const [item, setItem] = useState({});
+  const [isLoaded, setIsloaded] = useState(false);
+  const [isWrong, setIsWrong] = useState(false);
   const [modItem, setModItem] = useState({
     nome: "",
     desc: "",
@@ -29,11 +37,10 @@ export default function ModalMod({ open, handleOpen, closeModal, itemPassed=null
   const [relazioni, setRelazioni] = useState([]);
   const [relazione, setRelazione] = useState({});
 
-
   useEffect(() => {
-    if(itemPassed){
-      setItem(itemPassed)
-      setTipo(itemPassed?.tipo)
+    if (itemPassed) {
+      setItem(itemPassed);
+      setTipo(itemPassed?.tipo);
       setModItem({
         nome: itemPassed?.nome,
         desc: itemPassed?.descrizione,
@@ -41,7 +48,7 @@ export default function ModalMod({ open, handleOpen, closeModal, itemPassed=null
         img: itemPassed?.img,
       });
     }
-  },[itemPassed])
+  }, [itemPassed]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -64,10 +71,15 @@ export default function ModalMod({ open, handleOpen, closeModal, itemPassed=null
       body: JSON.stringify(payload),
     })
       .then((r) => {
-        if (r.ok) console.log(r);
-        else throw new Error(r.statusText);
+        if (r.ok) {
+          setIsWrong(false);
+          setIsloaded(true);
+        } else throw new Error(r.statusText);
       })
-      .catch((e) => console.error(e));
+      .catch((e) => {
+        setIsWrong(true);
+        setIsloaded(false);
+      });
   };
 
   useEffect(() => {
@@ -188,6 +200,11 @@ export default function ModalMod({ open, handleOpen, closeModal, itemPassed=null
       })
       .catch((er) => console.error(er));
   }
+
+  useEffect(() => {
+    setIsWrong(false);
+    setIsloaded(false);
+  }, []);
 
   return (
     <>
@@ -359,7 +376,7 @@ export default function ModalMod({ open, handleOpen, closeModal, itemPassed=null
                 <button className="btn btn-ghost" onClick={closeModal}>
                   Annulla
                 </button>
-                <button className="btn bg-bg hover:bg-bg hover:border hover:border-myP text-txt">
+                <button onClick={handleSubmit} className="btn bg-bg hover:bg-bg hover:border hover:border-myP text-txt">
                   Invia
                 </button>
               </div>
@@ -383,11 +400,17 @@ export default function ModalMod({ open, handleOpen, closeModal, itemPassed=null
                 }}
               />
             </div>
-            {fileImg && (
-            <FileImg it={item} />
-            )}
+            {fileImg && <FileImg it={item} />}
           </form>
         </DialogBody>
+        {isLoaded && (
+          <Alert color="green">Elemento aggiornato con successo</Alert>
+        )}
+        {isWrong && (
+          <Alert color="red">
+            Errore durante l'aggiornamento dell'elemento
+          </Alert>
+        )}
       </Dialog>
     </>
   );

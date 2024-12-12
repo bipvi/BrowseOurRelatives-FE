@@ -1,10 +1,12 @@
 import {
+  Alert,
   Button,
   IconButton,
   SpeedDial,
   SpeedDialAction,
   SpeedDialContent,
   SpeedDialHandler,
+  Spinner,
   Typography,
 } from "@material-tailwind/react";
 import ButtonMyP from "../buttons/ButtonMyP";
@@ -28,7 +30,9 @@ export default function CuriosoneHeading() {
   const navigate = useNavigate();
   const [item, setItem] = useState(undefined);
   const [other, setOther] = useState(undefined);
-
+  const [open, setOpen] = useState(false);
+  const [isLoading, setIsloading] = useState(false);
+  const [isWrong, setIsWrong] = useState(false);
   const getRandomSpecie = (f) => {
     fetch(baseUrl + "/specie/getRandomly", {
       headers: { Authorization: `Bearer ${me.token}` },
@@ -39,6 +43,8 @@ export default function CuriosoneHeading() {
       })
       .then((d) => {
         console.log(d);
+        setIsloading(false);
+        setIsWrong(false);
         f(d);
       })
       .catch((er) => alert(er));
@@ -47,16 +53,51 @@ export default function CuriosoneHeading() {
   useEffect(() => {
     getRandomSpecie(setItem);
     getRandomSpecie(setOther);
+    setIsWrong(false);
+    setIsloading(false);
   }, []);
 
   useEffect(() => {
-    if (!me.token){
-      navigate("/")
-    } 
-  }, [me])
+    if (!me.token) {
+      navigate("/");
+    }
+  }, [me]);
 
   return (
     <>
+      {isWrong && (
+        <Alert
+          variant="gradient"
+          open={open}
+          icon={
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              className="h-6 w-6"
+            >
+              <path
+                fillRule="evenodd"
+                d="M9.401 3.003c1.155-2 4.043-2 5.197 0l7.355 12.748c1.154 2-.29 4.5-2.599 4.5H4.645c-2.309 0-3.752-2.5-2.598-4.5L9.4 3.003zM12 8.25a.75.75 0 01.75.75v3.75a.75.75 0 01-1.5 0V9a.75.75 0 01.75-.75zm0 8.25a.75.75 0 100-1.5.75.75 0 000 1.5z"
+                clipRule="evenodd"
+              />
+            </svg>
+          }
+          action={
+            <Button
+              variant="text"
+              color="white"
+              size="sm"
+              className="!absolute top-3 right-3"
+              onClick={() => setOpen(false)}
+            >
+              Close
+            </Button>
+          }
+        >
+          Sorry, something went wrong please try again.
+        </Alert>
+      )}
       <div className="lg:flex lg:items-center lg:justify-evenly my-7 mx-auto px-8 sm:px-14 md:px-4 lg:px-16 w-screen">
         <div className="min-w-0 flex-1 flex-nowrap">
           <div className="flex items-center justify-between sm:me-6 lg:me-0">
@@ -70,6 +111,7 @@ export default function CuriosoneHeading() {
                 e.preventDefault();
                 getRandomSpecie(setItem);
                 getRandomSpecie(setOther);
+                setIsloading(true);
               }}
             >
               Vedi altro
@@ -94,26 +136,32 @@ export default function CuriosoneHeading() {
 
       <div className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-5 mx-auto py-3 px-8 sm:px-14 md:px-4 lg:px-16 w-screen gap-11">
         <div className="lg:col-span-4 col-span-3">
-          <HorizontalCard it={item} />
+          {isLoading ? <Spinner className="h-12 w-12" /> : <HorizontalCard it={item} />}
           <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-6 min-w-full gap-4 mt-6">
-            {item != undefined ? <MicroCard item={item.genere} /> : null}
-            {item != undefined ? (
+            {item != undefined && isLoading == false ? <MicroCard item={item.genere} /> : null}
+            {isLoading && <Spinner className="h-12 w-12" />}
+            {item != undefined && isLoading == false ? (
               <MicroCard item={item.genere.famiglia} />
             ) : null}
-            {item != undefined ? (
+            {isLoading && <Spinner className="h-12 w-12" />}
+            {item != undefined && isLoading == false ? (
               <MicroCard item={item.genere.famiglia.ordine} />
             ) : null}
-            {item != undefined ? (
+            {isLoading && <Spinner className="h-12 w-12" />}
+            {item != undefined && isLoading == false ? (
               <MicroCard item={item.genere.famiglia.ordine.classe} />
             ) : null}
-            {item != undefined ? (
+            {isLoading && <Spinner className="h-12 w-12" />}
+            {item != undefined && isLoading == false ? (
               <MicroCard item={item.genere.famiglia.ordine.classe.phylum} />
             ) : null}
-            {item != undefined ? (
+            {isLoading && <Spinner className="h-12 w-12" />}
+            {item != undefined && isLoading == false ? (
               <MicroCard
                 item={item.genere.famiglia.ordine.classe.phylum.regno}
               />
             ) : null}
+            {isLoading && <Spinner className="h-12 w-12" />}
           </div>
         </div>
         <div className="lg:col-span-1 hidden md:contents">
@@ -124,20 +172,24 @@ export default function CuriosoneHeading() {
             >
               Altre specie:
             </Typography>
-            {other != undefined ? <MicroCard item={other} /> : null}
-            {other != undefined ? <MicroCard item={other.genere} /> : null}
-            {other != undefined ? (
+            {other != undefined  && isLoading == false ? <MicroCard item={other} /> : null}
+            {isLoading && <Spinner className="h-12 w-12" />}
+            {other != undefined  && isLoading == false ? <MicroCard item={other.genere} /> : null}
+            {isLoading && <Spinner className="h-12 w-12" />}
+            {other != undefined  && isLoading == false ? (
               <MicroCard
                 item={other.genere.famiglia.ordine}
                 classe="hideLastCard"
               />
             ) : null}
-            {other != undefined ? (
+            {isLoading && <Spinner className="h-12 w-12" />}
+            {other != undefined  && isLoading == false ? (
               <MicroCard
                 item={other.genere.famiglia.ordine.classe.phylum}
                 classe="hideLastCard"
               />
             ) : null}
+            {isLoading && <Spinner className="h-12 w-12" />}
           </div>
         </div>
       </div>

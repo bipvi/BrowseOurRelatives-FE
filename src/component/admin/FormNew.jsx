@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { baseUrl } from "../../redux/actions";
 import { useSelector } from "react-redux";
+import { Alert } from "@material-tailwind/react";
 
 export default function FormNew({ closeDrawer }) {
   const me = useSelector((s) => s.user);
@@ -13,7 +14,9 @@ export default function FormNew({ closeDrawer }) {
   const [relazioni, setRelazioni] = useState([]);
   const [relazione, setRelazione] = useState({});
   const [nome_scientifico, setNomeScientifico] = useState("");
-  const [numEsemplari, setNumEsemplari] = useState(1000)
+  const [numEsemplari, setNumEsemplari] = useState(1000);
+  const [isLoaded, setIsloaded] = useState(false);
+  const [isWrong, setIsWrong] = useState(false);
 
   const handleIsNew = (boolean) => setIsNew(boolean);
 
@@ -32,7 +35,7 @@ export default function FormNew({ closeDrawer }) {
       img: immagine,
       [`${relType.toLowerCase()}_id`]: relazione.id,
       nome_scientifico: nome_scientifico,
-      esemplari_rimasti: numEsemplari
+      esemplari_rimasti: numEsemplari,
     };
     fetch(`${baseUrl}/${tipo.toLowerCase()}`, {
       headers: {
@@ -43,11 +46,18 @@ export default function FormNew({ closeDrawer }) {
       body: JSON.stringify(payload),
     })
       .then((r) => {
-        if (r.ok) console.log(r);
-        else throw new Error(r.statusText);
+        if (r.ok) {
+          setIsWrong(false);
+          setIsloaded(true);
+        } else throw new Error(r.statusText);
       })
-      .catch((e) => console.error(e));
+      .catch((e) => setIsWrong(true));
   };
+
+  useEffect(() => {
+    setIsWrong(false)
+    setIsloaded(false)
+  },[])
 
   const handleRelationship = () => {
     let rel = "";
@@ -92,7 +102,10 @@ export default function FormNew({ closeDrawer }) {
 
   return (
     <>
-      <form className="container px-6 w-full" onSubmit={(e) => handleSubmit(e)}>
+      <form
+        className="container px-6 w-full my-3"
+        onSubmit={(e) => handleSubmit(e)}
+      >
         <div className="label">
           <span className="label-text">Seleziona tipo</span>
         </div>
@@ -145,7 +158,6 @@ export default function FormNew({ closeDrawer }) {
                 maxLength={255}
                 value={numEsemplari}
                 onChange={(e) => setNumEsemplari(e.target.value)}
-                
                 className="input input-md bg-transparent placeholder:text-gray-400 border border-gray-400"
               />
             </label>
@@ -160,7 +172,7 @@ export default function FormNew({ closeDrawer }) {
               <input
                 type="text"
                 maxLength={255}
-                value={nome}
+                value={nome_scientifico}
                 onChange={(e) => setNomeScientifico(e.target.value)}
                 placeholder={
                   tipo != ""
@@ -226,7 +238,6 @@ export default function FormNew({ closeDrawer }) {
               <span className="label-text">Seleziona relazione</span>
             </div>
             <select
-              value={relazione}
               onChange={(e) => handleRelazione(e.target.value)}
               className="select-md border-gray-400 rounded-lg w-full bg-transparent mb-6"
               id="selOption2"
@@ -278,6 +289,10 @@ export default function FormNew({ closeDrawer }) {
           </button>
         </div>
       </form>
+      {isLoaded && <Alert color="green">Elemento aggiunto con successo</Alert>}
+      {isWrong && (
+        <Alert color="red">Errore durante l'aggiunta dell'elemento</Alert>
+      )}
       {isNew && <FormNew />}
     </>
   );
