@@ -1,0 +1,5 @@
+@import "flowbite";
+@import "./style.scss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
