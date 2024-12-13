@@ -61,15 +61,15 @@ export default function MicroCard({ classe = "", item }) {
             {item != undefined ? item.descrizione.slice(0, 58) : "Ciao"}...
           </p>
           <button
-            className="btn relative top-[35px] btn-success text-txt border shadow-xs hover:shadow-sm hover:bg-myP hover:text-txt"
+            className="btn relative -bottom-12 z-[48] btn-success text-txt border shadow-xs hover:shadow-sm hover:bg-bg hover:text-txt"
             onClick={handleOpen}
           >
             Dettagli
           </button>
         </div>
-        <div className="relative">
+          <div className="relative">
           <img
-            className="object-cover overflow-hidden w-full h-52 rounded-t-none rounded-b-lg"
+            className="object-cover overflow-hidden w-full h-60 rounded-t-none rounded-b-lg"
             src={item != undefined && item.img}
             alt="animal"
           />
@@ -78,14 +78,14 @@ export default function MicroCard({ classe = "", item }) {
               className="absolute top-2 right-2 bg-transparent border-none cursor-pointer"
               onClick={handleAddFavourite}
             >
-              <GoHeart className="w-8 h-10 text-bg" />
+              <GoHeart className="w-8 h-10 text-myP" />
             </div>
           ) : (
             <div
               className="absolute top-2 right-2 bg-transparent border-none cursor-pointer"
               onClick={handleRemoveFavourite}
             >
-              <GoHeartFill className="w-8 h-10 fill-bg" />
+              <GoHeartFill className="w-8 h-10 fill-myP" />
             </div>
           )}
         </div>

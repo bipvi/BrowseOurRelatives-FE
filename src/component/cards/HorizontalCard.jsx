@@ -92,7 +92,7 @@ export function HorizontalCard({ classe = "max-w-full", it }) {
           <a className="inline-block">
             <Button
               variant="text"
-              className="flex text-bg items-center gap-2"
+              className="flex text-bg items-center gap-2 hover:border-none hover:shadow-md"
               onClick={() => setOpen(true)}
             >
               Dettaglio
