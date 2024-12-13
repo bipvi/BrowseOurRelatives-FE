@@ -6,7 +6,9 @@ import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import {
   baseUrl,
+  GET_FAVOURITE,
   GET_ME,
+  getFavourite,
   getMe,
   LOCAL_STORAGE_KEY,
   localStorageKey,
@@ -29,6 +31,7 @@ export default function MyHero() {
   useEffect(() => {
     if (me.token) {
       dispatch(getMe(me.token), GET_ME);
+      dispatch(getFavourite(me.token), GET_FAVOURITE)
       getRand(setItem1);
       getRand(setItem2);
     }

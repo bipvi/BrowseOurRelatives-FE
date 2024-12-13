@@ -7,16 +7,42 @@ import {
 } from "@material-tailwind/react";
 import { useEffect, useState } from "react";
 import Details from "../detail/Details";
+import { useDispatch, useSelector } from "react-redux";
+import { GoHeart, GoHeartFill } from "react-icons/go";
+import { ADD_FAVOURITE, addFavourite, GET_FAVOURITE, getFavourite, REMOVE_FAVOURITE, removeFavourite } from "../../redux/actions";
 
 export function HorizontalCard({ classe = "max-w-full", it }) {
   const [open, setOpen] = useState(false);
+  const dispatch = useDispatch();
+  const me = useSelector((state) => state.user);
+  const favs = useSelector((s) => s.user.favourites);
+  const [isFav, setIsFav] = useState(false);
+  useEffect(() => {
+    if (Array.isArray(favs)) {
+      setIsFav(false);
+      favs.forEach((f) => {
+        if (f?.id === it?.id) setIsFav(true);
+      });
+    }
+  }, [it, favs]);
+
+  const handleAddFavourite = () => {
+    console.log("ciao");
+    dispatch(addFavourite(it.id, me.token), ADD_FAVOURITE);
+    dispatch(getFavourite(me.token), GET_FAVOURITE);
+  };
+
+  const handleRemoveFavourite = () => {
+    dispatch(removeFavourite(it.id, me.token), REMOVE_FAVOURITE);
+    dispatch(getFavourite(me.token), GET_FAVOURITE);
+  };
+
   const handleOpen = () => {
     setOpen(!open);
   };
   const closeOpen = () => {
     setOpen(false);
   };
-
 
   return (
     <>
@@ -32,13 +58,29 @@ export function HorizontalCard({ classe = "max-w-full", it }) {
         <CardHeader
           shadow={false}
           floated={false}
-          className="m-0 w-2/5 shrink-0 rounded-r-none"
+          className="m-0 w-2/5 shrink-0 rounded-r-none relative"
         >
           <img
             src={it ? it.img : "https://via.placeholder.com/300x200"}
             alt="card-image"
             className="w-full h-full object-cover"
           />
+
+          {!isFav ? (
+            <div
+              className="badge bg-transparent border-none absolute top-2 right-2 p-2 cursor-pointer"
+              onClick={handleAddFavourite}
+            >
+              <GoHeart className="w-8 h-10 text-bg" />
+            </div>
+          ) : (
+            <div
+              className="badge bg-transparent border-none absolute top-2 right-2 p-2 cursor-pointer"
+              onClick={handleRemoveFavourite}
+            >
+              <GoHeartFill className="w-8 h-10 fill-bg" />
+            </div>
+          )}
         </CardHeader>
         <CardBody>
           <Typography variant="h4" className="mb-2 text-txt">

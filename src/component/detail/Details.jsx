@@ -10,6 +10,7 @@ import {
 } from "@material-tailwind/react";
 import { useState, useEffect } from "react";
 import ModalMod from "../admin/ModalMod";
+import CommentArea from "./CommentArea";
 import { useSelector } from "react-redux";
 
 export default function Details({ open, handleOpen, closeModal, item }) {
@@ -20,7 +21,7 @@ export default function Details({ open, handleOpen, closeModal, item }) {
   const [openAdmin, setOpenAdmin] = useState(false);
   const handleOpenAdmin = () => setOpenAdmin(!openAdmin);
   const closeOpenAdmin = () => setOpenAdmin(false);
-  const me = useSelector(s => s.user)
+  const me = useSelector((s) => s.user);
 
   const renderHierarchyList = (levels) => {
     if (!levels || levels.length === 0) return null;
@@ -131,7 +132,7 @@ export default function Details({ open, handleOpen, closeModal, item }) {
       {/* Main Dialog */}
       <Dialog
         open={open}
-        size={'xxl'}
+        size={"xxl"}
         handler={handleOpen}
         animate={{
           mount: { scale: 1, y: 0 },
@@ -169,6 +170,10 @@ export default function Details({ open, handleOpen, closeModal, item }) {
                 </h2>
                 <p className="text-txt leading-relaxed">{item?.storia}</p>
               </section>
+              <CommentArea
+                itemId={item?.id}
+                commenti={item?.commenti}
+              />
             </div>
           </div>
         </div>
@@ -183,8 +188,8 @@ export default function Details({ open, handleOpen, closeModal, item }) {
             {me?.role != "USER" && (
               <Button
                 onClick={() => {
-                  handleOpenAdmin()
-                  closeModal()
+                  handleOpenAdmin();
+                  closeModal();
                 }}
                 className="mr-1 bg-myP shadow-xs hover:shadow-sm hover:border-none"
               >
