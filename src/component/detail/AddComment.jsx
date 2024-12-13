@@ -51,7 +51,7 @@ export default function AddComment({ itemId }) {
       value={cont}
       type="text"
       placeholder="Scrivi il tuo commento"
-      className="input input-bordered w-full bg-transparent placeholder:text-txt text-txt"
+      className="input input-bordered border-txt w-full bg-transparent placeholder:text-txt text-txt"
     />
   );
 }

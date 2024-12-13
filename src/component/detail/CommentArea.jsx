@@ -19,9 +19,8 @@ class CommentArea extends Component {
                   <div className="flex items-center justify-start w-full gap-3">
                     <ListItemPrefix>
                       <Avatar
-                        variant="circular"
                         alt="candice"
-                        className="w-8 h-8"
+                        className="w-8 h-8 ring-1 ring-txt rounded-full"
                         src={c.user.avatar}
                       />
                     </ListItemPrefix>

@@ -1,38 +1,54 @@
 import { useEffect, useState } from "react";
 import logo from "../../../public/favicon.svg";
 import ButtonMyP from "../buttons/ButtonMyP";
-import { baseUrl, GET_ME, getMe, LOCAL_STORAGE_KEY, localStorageKey, LOG_IN, logUser } from "../../redux/actions";
+import {
+  baseUrl,
+  GET_ME,
+  getMe,
+  LOCAL_STORAGE_KEY,
+  localStorageKey,
+  LOG_IN,
+  logUser,
+} from "../../redux/actions";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
 export default function LoginPage() {
-  const dispatch = useDispatch()
-  const navigate = useNavigate()
-  const user = useSelector((s) => s.user)
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const user = useSelector((s) => s.user);
   const [me, setMe] = useState({
     username: "",
     password: "",
   });
 
   const sendMe = () => {
-   dispatch(logUser(me.username, me.password), LOG_IN)
-   console.log(user)
+    dispatch(logUser(me.username, me.password), LOG_IN);
   };
 
   const handleSubmit = (e) => {
-    e.preventeDefault()
-    if (me.username != '' || me.password != '') {
-      sendMe()
+    e.preventDefault();
+    if (me.username != "" && me.password != "") {
+      sendMe();
     }
-  }
-  
+  };
+
   useEffect(() => {
-    if(user.token && user.username == '') dispatch(getMe(user.token), GET_ME)
-    if(user.token && user.username != '') {
-      localStorage.setItem('tokenKey',user.token)
-      dispatch(localStorageKey(user.token),LOCAL_STORAGE_KEY)
-      navigate("/")}
-  },[])
+    if (user.token) {
+      if (user.username === "") {
+        dispatch(getMe(user.token));
+      } else {
+        localStorage.setItem("tokenKey", user.token);
+        dispatch(localStorageKey(user.token));
+
+        const timer = setTimeout(() => {
+          navigate("/");
+        }, 1000);
+
+        return () => clearTimeout(timer);
+      }
+    }
+  }, [user]);
 
   return (
     <>
@@ -105,9 +121,8 @@ export default function LoginPage() {
               <ButtonMyP
                 txt="Login"
                 classe="flex w-full justify-center rounded-md"
-                onClick={() => {
-                  console.log(me);
-                  sendMe();
+                onClick={(e) => {
+                  handleSubmit(e);
                 }}
               />
             </div>
@@ -115,7 +130,10 @@ export default function LoginPage() {
 
           <p className="mt-10 text-center text-sm/6 text-gray-300">
             Not a member?{" "}
-            <a onClick={() => navigate('/register')} className="font-semibold text-myP hover:text-ac">
+            <a
+              onClick={() => navigate("/register")}
+              className="font-semibold text-myP hover:text-ac"
+            >
               Sing in
             </a>
           </p>

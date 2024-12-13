@@ -8,6 +8,8 @@ export const SIGN_UP = 'SIGN_UP'
 export const baseUrl = 'http://localhost:3001'
 export const REMOVE_ME = 'REMOVE_ME'
 
+const API_BASE = 'https://api.example.com/favorites';
+
 //-------------------- USERS --------------------------
 // ----------------- LOGIN ---------------------
 export const logUser = (username, password) => {
@@ -86,15 +88,14 @@ export const getMe = (token) => {
 // ------------------ ADD FAVOURITE -------------------------------
 export const addFavourite = (id, token) => {
     return async (dispatch) => {
-        const url = baseUrl + '/me/fav'
+        const url = baseUrl + `/user/me/fav?fav=${id}`
         try {
             const resp = await fetch(url, {
-                method: 'PUT',
+                method: 'POST',
                 headers: {
                     'Authorization': `Bearer ${token}`,
                     'Content-Type': 'application/json'
                 },
-                body: URLSearchParams({ fav: id })
             })
             if (resp.ok) {
                 const data = await resp.json()
@@ -112,7 +113,7 @@ export const addFavourite = (id, token) => {
 // ------------------ REMOVE FAVOURITE -------------------------------
 export const removeFavourite = (id, token) => {
     return async (dispatch) => {
-        const url = baseUrl + '/me/fav'
+        const url = baseUrl + `/user/me/fav?fav=${id}`
         try {
             const resp = await fetch(url, {
                 method: 'DELETE',
@@ -120,13 +121,11 @@ export const removeFavourite = (id, token) => {
                     'Authorization': `Bearer ${token}`,
                     'Content-Type': 'application/json'
                 },
-                body: URLSearchParams({ fav: id })
             })
             if (resp.ok) {
-                const data = await resp.json()
                 dispatch({
                     type: REMOVE_FAVOURITE,
-                    payload: data
+                    payload: id
                 })
             } else { alert('Errore nella fetch') }
         }
@@ -138,7 +137,7 @@ export const removeFavourite = (id, token) => {
 // ------------------ GET FAVOURITE -------------------------------
 export const getFavourite = (token) => {
     return async (dispatch) => {
-        const url = baseUrl + '/me/fav'
+        const url = baseUrl + '/user/me/fav'
         try {
             const resp = await fetch(url, {
                 headers: {
@@ -159,7 +158,7 @@ export const getFavourite = (token) => {
 }
 
 // --------------------- LOCAL STORAGE KEY --------------------------
-export const localStorageKey  = (token) => {
+export const localStorageKey = (token) => {
     return {
         type: LOCAL_STORAGE_KEY,
         payload: token,

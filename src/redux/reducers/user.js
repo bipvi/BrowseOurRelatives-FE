@@ -5,6 +5,7 @@ const initialState = {
     avatar: '',
     favourites: [],
     token: '',
+    ruolo: '',
     id:'',
 }
 
@@ -21,22 +22,23 @@ const userReducer = (state = initialState, action) => {
                 username: action.payload.username,
                 avatar: action.payload.avatar,
                 id: action.payload.id,
+                ruolo:action.payload.ruolo,
                 favourites: action.payload.favourites
             }
         case ADD_FAVOURITE:
             return {
                 ...state,
-                favourites: [...state.favourites, action.favourite]
+                favourites: [...state.favourites, action.payload]
             }
         case GET_FAVOURITE:
             return {
                 ...state,
-                favourites: [action.favourite]
+                favourites: action.payload
             }
         case REMOVE_FAVOURITE:
             return {
                 ...state,
-                favourites: state.favourites.filter(favourite => favourite !== action.favourite)
+                favourites: state.favourites.filter(favourite => favourite.id !== action.payload)
             }
         case REMOVE_ME:
             return{

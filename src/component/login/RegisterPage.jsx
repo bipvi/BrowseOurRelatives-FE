@@ -4,7 +4,7 @@ import ButtonMyP from "../buttons/ButtonMyP";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-import { signUp } from "../../redux/actions";
+import { SIGN_UP, signUp } from "../../redux/actions";
 
 export default function RegisterPage() {
   const dispatch = useDispatch();
@@ -21,9 +21,11 @@ export default function RegisterPage() {
   };
 
   const handleSubmit = (e) => {
-    e.preventeDefault();
-    if (me.username != "" || me.password != "") {
+    e.preventDefault();
+    if (me.username != "" && me.password != "") {
+      console.log('E ENTRATO')
       sendMe();
+      navigate('/login')
     }
   };
   return (
@@ -162,7 +164,8 @@ export default function RegisterPage() {
 
             <div>
               <ButtonMyP
-                txt="Login"
+              onClick={handleSubmit}
+                txt="Register"
                 classe="flex w-full justify-center rounded-md"
               />
             </div>
