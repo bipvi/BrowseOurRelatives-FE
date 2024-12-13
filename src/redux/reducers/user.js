@@ -5,6 +5,7 @@ const initialState = {
     avatar: '',
     favourites: [],
     token: '',
+    id:'',
 }
 
 const userReducer = (state = initialState, action) => {
@@ -19,6 +20,7 @@ const userReducer = (state = initialState, action) => {
                 ...state,
                 username: action.payload.username,
                 avatar: action.payload.avatar,
+                id: action.payload.id,
                 favourites: action.payload.favourites
             }
         case ADD_FAVOURITE:
