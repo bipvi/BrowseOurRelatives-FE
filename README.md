@@ -28,25 +28,21 @@ Vuoi vedere l'applicazione in azione? Segui questi semplici passaggi per configu
 ### Frontend
 
 1. **Clona il repository del frontend**:
-
    ```bash
    git clone https://github.com/bipvi/BrowseOurRelatives-FE.git
    ```
 
 2. **Naviga nella cartella del progetto**:
-
    ```bash
    cd BrowseOurRelatives-FE/browse-our-relatives
    ```
 
 3. **Installa le dipendenze necessarie**:
-
    ```bash
    npm install
    ```
 
 4. **Avvia il server di sviluppo**:
-
    ```bash
    npm run dev
    ```
@@ -56,7 +52,6 @@ Vuoi vedere l'applicazione in azione? Segui questi semplici passaggi per configu
 ### Backend
 
 1. **Clona il repository dedicato**:
-
    ```bash
    git clone https://github.com/bipvi/BrowseOurRelatives-BE.git
    ```
@@ -88,5 +83,5 @@ Questo progetto è distribuito sotto la licenza **MIT**, che garantisce libertà
 
 ## Contatti
 
-Per dubbi, suggerimenti o collaborazioni, puoi contattarci via email: [[costantini062@example.com](mailto\:costantini062@gmail.com)].
+Per dubbi, suggerimenti o collaborazioni, puoi contattarci via email: [costantini062@gmail.com].
 
