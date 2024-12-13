@@ -10,6 +10,7 @@ import BottomQuery from "./BottomQuery";
 import { FaPhone } from "react-icons/fa6";
 import { MdPhoneEnabled } from "react-icons/md";
 import { RiContactsFill } from "react-icons/ri";
+import { AiFillFire } from "react-icons/ai";
 
 export default function BottomNavigation() {
   const navigate = useNavigate()
@@ -46,8 +47,13 @@ export default function BottomNavigation() {
             data-tooltip-target="tooltip-wallet"
             type="button"
             onClick={() => navigate('/curiosone')}
-            className="inline-flex flex-col items-center justify-center px-5 hover:bg-gray-50 dark:hover:bg-gray-800 group"
+            className="inline-flex flex-col items-center justify-center relative px-5 hover:bg-gray-50 dark:hover:bg-gray-800 group"
           >
+            <div
+              className="badge absolute top-2 end-4 bg-transparent border-none"
+            >
+              <AiFillFire className="w-6 h-6 text-bg" />
+            </div>
             <GiWorld  className="w-8 h-8"/>
             <span className="sr-only">Curiosone</span>
           </button>

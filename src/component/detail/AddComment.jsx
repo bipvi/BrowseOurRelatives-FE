@@ -1,11 +1,14 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { baseUrl, GET_ME, getMe } from "../../redux/actions";
+import { Alert } from "@material-tailwind/react";
 
 export default function AddComment({ itemId }) {
   const [cont, setCont] = useState("");
   const me = useSelector((s) => s.user);
   const dispatch = useDispatch();
+  const [isErr, setIsErr] = useState(false);
+  const [load, setLoad] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -24,15 +27,15 @@ export default function AddComment({ itemId }) {
       .then((response) => {
         if (response.ok) {
           console.log("prenotazione salvata");
-          alert("grazie!");
+          setLoad(true);
+          setIsErr(false);
           setCont("");
         } else {
-          alert("riprova più tardi");
-          throw new Error("errore!");
+          setIsErr(true);
         }
       })
       .catch((err) => {
-        alert(err);
+        setIsErr(true);
       });
   };
 
@@ -41,17 +44,21 @@ export default function AddComment({ itemId }) {
   }, [itemId]);
 
   return (
-    <input
-      onKeyDown={(e) => {
-        if (e.key === "Enter" || e.keyCode === "13") {
-          handleSubmit(e);
-        }
-      }}
-      onChange={(e) => setCont(e.target.value)}
-      value={cont}
-      type="text"
-      placeholder="Scrivi il tuo commento"
-      className="input input-bordered border-txt w-full bg-transparent placeholder:text-txt text-txt"
-    />
+    <>
+      {isErr && <Alert color="red" className="absolute">Errore</Alert>}
+      {load && <Alert color="green" className="absolute ">Commento aggiunto</Alert>}
+      <input
+        onKeyDown={(e) => {
+          if (e.key === "Enter" || e.keyCode === "13") {
+            handleSubmit(e);
+          }
+        }}
+        onChange={(e) => setCont(e.target.value)}
+        value={cont}
+        type="text"
+        placeholder="Scrivi il tuo commento"
+        className="input input-bordered border-txt w-full bg-transparent placeholder:text-txt text-txt"
+      />
+    </>
   );
 }

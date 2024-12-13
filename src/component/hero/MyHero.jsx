@@ -86,7 +86,7 @@ export default function MyHero() {
             Scopri tutte le funzionalità che abbiamo da offrire e inizia a
             utilizzare la nostra applicazione oggi stesso.
           </p>
-          <ButtonMyP txt="Vai alla home" />
+          <ButtonMyP onClick={() => navigate('/curiosone')} txt="Vai al curiosone" />
         </div>
       </div>
       <Sections item1={item1} item2={item2} change={change} />

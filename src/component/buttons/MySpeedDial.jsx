@@ -14,11 +14,12 @@ import MyDrawer from "../admin/MyDrawer";
 import { useEffect, useState } from "react";
 import ModalMod from "../admin/ModalMod";
 import Icon from "./Icon";
+import { useSelector } from "react-redux";
 
 export default function MySpeedDial() {
   const [open, setOpen] = useState(false);
   const [modalOpen, setOpenModal] = useState(false);
-
+const me = useSelector(s => s.user);
   const openDrawer = () => setOpen(true);
   const toggleDrawer = () => setOpen(!open);
   const closeDrawer = () => setOpen(false);
@@ -33,7 +34,7 @@ export default function MySpeedDial() {
       <ModalMod open={modalOpen} handleOpen={setOpenModal} closeModal={closeModal}/>
       <div className="fixed bottom-24 nav:bottom-5 z-40 logo-shadow right-6">
         <SpeedDial>
-          <SpeedDialHandler>
+          <SpeedDialHandler className={`${me?.ruolo == 'USER' && 'hidden'}`}>
             <IconButton className="nav:size-16 size-12 rounded-full bg-bg border-txt">
               <FiUserX className="h-5 w-5 nav:h-8 nav:w-8 hidden group-hover:block" />
               <FiUserPlus className="block h-5 w-5 nav:h-8 nav:w-8 transition-transform group-hover:hidden" />

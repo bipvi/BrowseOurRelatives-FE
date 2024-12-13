@@ -34,7 +34,6 @@ export default function HomeCards({ item, change, num }) {
       setIsFav(false);
       favs.forEach((f) => {
         if (f?.id === item?.id) setIsFav(true);
-        console.log(isFav, item.id, f.id);
       });
     }
   }, [item, favs]);

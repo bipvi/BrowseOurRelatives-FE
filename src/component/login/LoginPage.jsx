@@ -41,14 +41,10 @@ export default function LoginPage() {
         localStorage.setItem("tokenKey", user.token);
         dispatch(localStorageKey(user.token));
 
-        const timer = setTimeout(() => {
-          navigate("/");
-        }, 1000);
-
-        return () => clearTimeout(timer);
+        navigate("/");
       }
     }
-  }, [user]);
+  }, [user.token, user.username, dispatch, navigate]);
 
   return (
     <>
@@ -108,6 +104,11 @@ export default function LoginPage() {
                   id="password"
                   name="password"
                   onChange={(e) => setMe({ ...me, password: e.target.value })}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter" || e.keyCode === "13") {
+                      handleSubmit(e);
+                    }
+                  }}
                   value={me.password}
                   type="password"
                   required

@@ -3,6 +3,7 @@ import MyCarousel from "./MyCarousel";
 import { useNavigate, useParams } from "react-router-dom";
 import { baseUrl } from "../../redux/actions";
 import { useSelector } from "react-redux";
+import { Alert } from "@material-tailwind/react";
 
 export default function ExplorePage() {
   const navigate = useNavigate();
@@ -10,6 +11,7 @@ export default function ExplorePage() {
   const me = useSelector((s) => s.user);
   const [item, setItem] = useState({});
   const [activeRegno, setActiveRegno] = useState({});
+  const [isError, setIsError ] = useState('');
   const [activePhylum, setActivePhylum] = useState({});
   const changePhylum = (phylum) => {
     setActivePhylum(phylum);
@@ -110,9 +112,10 @@ export default function ExplorePage() {
       })
       .then((d) => {
         console.log(d);
+        setIsError('')
         setItem(d);
       })
-      .catch((e) => alert(`Errore: ${e.message}`));
+      .catch((e) => setIsError(e));
   };
   
   useEffect(() => {
@@ -128,6 +131,7 @@ export default function ExplorePage() {
 
   return (
     <>
+    {isError && <Alert >{isError}</Alert>}
       <div className="container w-screen mt-5">
         <p className="text-3xl text-start px-6 font-semibold">Phylum</p>
         <MyCarousel

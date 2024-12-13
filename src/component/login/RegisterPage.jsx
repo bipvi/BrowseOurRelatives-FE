@@ -60,6 +60,11 @@ export default function RegisterPage() {
                   id="email1"
                   name="email"
                   type="email"
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter" || e.keyCode === "13") {
+                      handleSubmit(e)
+                    }
+                  }}
                   required
                   autoComplete="email"
                   className="block w-full shadow-xxs rounded-md border-0 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-myP sm:text-sm/6"
